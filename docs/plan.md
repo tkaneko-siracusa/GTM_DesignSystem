@@ -51,13 +51,13 @@
 
 ## Phase 5: セクションコンポーネント Tier 2
 
-- [ ] FeatureShowcase
-- [ ] ComparisonTable
-- [ ] TestimonialSection
-- [ ] LogoCloud
-- [ ] StatsSection
-- [ ] BentoGrid
-- [ ] CodeBlock
+- [x] FeatureShowcase
+- [x] ComparisonTable
+- [x] TestimonialSection
+- [x] LogoCloud
+- [x] StatsSection
+- [x] BentoGrid
+- [x] CodeBlock
 
 ## Phase 6: プロダクト固有 + テンプレート
 
