@@ -27,13 +27,13 @@
 
 ## Phase 2: プリミティブコンポーネント
 
-- [ ] Container / Section / Grid
-- [ ] Heading / Text
-- [ ] MarketingButton
-- [ ] Logo
-- [ ] GradientText / Divider
-- [ ] Link / Badge
-- [ ] AnimatedCounter
+- [x] Container / Section / Grid
+- [x] Heading / Text
+- [x] MarketingButton
+- [x] Logo
+- [x] GradientText / Divider
+- [x] Link / Badge
+- [x] AnimatedCounter
 
 ## Phase 3: セクションコンポーネント Tier 1
 
