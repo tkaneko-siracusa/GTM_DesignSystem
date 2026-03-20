@@ -60,6 +60,9 @@ export { LogoCloud, type LogoCloudProps, type LogoItem } from './components/sect
 export { StatsSection, type StatsSectionProps, type StatItem } from './components/sections/stats-section';
 export { BentoGrid, type BentoGridProps, type BentoItem } from './components/sections/bento-grid';
 export { CodeBlock, type CodeBlockProps } from './components/sections/code-block';
+export { ModuleOverview, type ModuleOverviewProps, type ModuleInfo, type ArchitectureLayer } from './components/sections/module-overview';
+export { MigrationComparison, type MigrationComparisonProps, type MigrationPath, type MigrationTrigger } from './components/sections/migration-comparison';
+export { AirPocketFeature, type AirPocketFeatureProps, type AirPocket } from './components/sections/air-pocket-feature';
 
 // Layout
 export { MarketingHeader, type MarketingHeaderProps, type NavItem, type HeaderAction } from './components/layout/marketing-header';
