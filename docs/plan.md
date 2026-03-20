@@ -37,11 +37,11 @@
 
 ## Phase 3: セクションコンポーネント Tier 1
 
-- [ ] HeroSection
-- [ ] FeatureGrid
-- [ ] PricingTable / PricingCard
-- [ ] CTASection
-- [ ] FAQSection
+- [x] HeroSection
+- [x] FeatureGrid
+- [x] PricingTable / PricingCard
+- [x] CTASection
+- [x] FAQSection
 
 ## Phase 4: レイアウトコンポーネント
 
