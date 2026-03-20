@@ -109,7 +109,7 @@ docker compose --platform linux/amd64 up
 
 ## コマンド
 
-- `pnpm storybook` - Storybook起動（ポート6006、`--host 0.0.0.0`）
+- `pnpm storybook` - Storybook起動（ポート6006、`--host 127.0.0.1`）
 - `pnpm build` - tsupビルド
 - `pnpm test` - Vitestテスト実行
 - `pnpm typecheck` - TypeScript型チェック

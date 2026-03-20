@@ -45,9 +45,9 @@
 
 ## Phase 4: レイアウトコンポーネント
 
-- [ ] MarketingHeader
-- [ ] MarketingFooter
-- [ ] PageLayout
+- [x] MarketingHeader
+- [x] MarketingFooter
+- [x] PageLayout
 
 ## Phase 5: セクションコンポーネント Tier 2
 
