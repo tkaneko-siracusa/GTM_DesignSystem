@@ -1,0 +1,114 @@
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/cn';
+import { Section } from '@/components/primitives/section';
+import { Container } from '@/components/primitives/container';
+import { Grid } from '@/components/primitives/grid';
+import { Heading } from '@/components/primitives/heading';
+import { Text } from '@/components/primitives/text';
+
+const featureCardVariants = cva(
+  'rounded-2xl border border-neutral-200 p-6 transition-shadow hover:shadow-lg dark:border-neutral-800',
+  {
+    variants: {
+      cardStyle: {
+        default: 'bg-white dark:bg-neutral-900',
+        muted: 'bg-neutral-50 dark:bg-neutral-900/50',
+      },
+    },
+    defaultVariants: {
+      cardStyle: 'default',
+    },
+  },
+);
+
+export interface FeatureItem {
+  icon?: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+export interface FeatureGridProps
+  extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
+  eyebrow?: string;
+  title?: React.ReactNode;
+  subtitle?: string;
+  features: FeatureItem[];
+  columns?: 2 | 3 | 4;
+  cardStyle?: 'default' | 'muted';
+  background?: 'default' | 'muted' | 'dark' | 'brand';
+}
+
+export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
+  (
+    {
+      className,
+      cardStyle,
+      eyebrow,
+      title,
+      subtitle,
+      features,
+      columns = 3,
+      background = 'default',
+      ...props
+    },
+    ref,
+  ) => {
+    const isDark = background === 'dark' || background === 'brand';
+
+    return (
+      <Section
+        ref={ref}
+        background={background}
+        spacing="lg"
+        className={className}
+        {...props}
+      >
+        <Container>
+          {(eyebrow || title || subtitle) && (
+            <div className="mb-12 text-center lg:mb-16">
+              {eyebrow && (
+                <Text size="overline" tone="brand" className="mb-4">
+                  {eyebrow}
+                </Text>
+              )}
+              {title && (
+                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                  {title}
+                </Heading>
+              )}
+              {subtitle && (
+                <Text
+                  size="body-lg"
+                  tone={isDark ? 'inherit' : 'secondary'}
+                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                >
+                  {subtitle}
+                </Text>
+              )}
+            </div>
+          )}
+
+          <Grid columns={columns} gap="lg">
+            {features.map((feature, i) => (
+              <div key={i} className={featureCardVariants({ cardStyle })}>
+                {feature.icon && (
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-primary-500 dark:bg-primary-950">
+                    {feature.icon}
+                  </div>
+                )}
+                <Heading as="h3" size="heading-md" className="mb-2">
+                  {feature.title}
+                </Heading>
+                <Text size="body-sm" tone="secondary">
+                  {feature.description}
+                </Text>
+              </div>
+            ))}
+          </Grid>
+        </Container>
+      </Section>
+    );
+  },
+);
+FeatureGrid.displayName = 'FeatureGrid';

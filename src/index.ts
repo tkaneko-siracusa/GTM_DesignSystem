@@ -44,3 +44,11 @@ export { Logo, type LogoProps } from './components/primitives/logo';
 export { Badge, badgeVariants, type BadgeProps } from './components/primitives/badge';
 export { Divider, dividerVariants, type DividerProps } from './components/primitives/divider';
 export { AnimatedCounter, type AnimatedCounterProps } from './components/primitives/animated-counter';
+
+// Sections
+export { HeroSection, heroSectionVariants, type HeroSectionProps, type HeroAction } from './components/sections/hero-section';
+export { FeatureGrid, type FeatureGridProps, type FeatureItem } from './components/sections/feature-grid';
+export { PricingTable, type PricingTableProps } from './components/sections/pricing';
+export { PricingCard, pricingCardVariants, type PricingCardProps, type PricingFeature } from './components/sections/pricing';
+export { CTASection, ctaSectionVariants, type CTASectionProps, type CTAAction } from './components/sections/cta-section';
+export { FAQSection, type FAQSectionProps, type FAQItem } from './components/sections/faq-section';
