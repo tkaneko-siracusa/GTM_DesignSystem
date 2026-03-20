@@ -61,10 +61,10 @@
 
 ## Phase 6: プロダクト固有 + テンプレート
 
-- [ ] ModuleOverview
-- [ ] MigrationComparison
-- [ ] AirPocketFeature
-- [ ] LP構成例（Storybook examples）
+- [x] ModuleOverview
+- [x] MigrationComparison
+- [x] AirPocketFeature
+- [x] LP構成例（Storybook examples）
 
 ## Phase 7: 品質仕上げ
 
