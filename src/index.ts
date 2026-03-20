@@ -53,6 +53,14 @@ export { PricingCard, pricingCardVariants, type PricingCardProps, type PricingFe
 export { CTASection, ctaSectionVariants, type CTASectionProps, type CTAAction } from './components/sections/cta-section';
 export { FAQSection, type FAQSectionProps, type FAQItem } from './components/sections/faq-section';
 
+export { FeatureShowcase, type FeatureShowcaseProps, type ShowcaseItem } from './components/sections/feature-showcase';
+export { ComparisonTable, type ComparisonTableProps, type ComparisonColumn, type ComparisonRow } from './components/sections/comparison-table';
+export { TestimonialSection, type TestimonialSectionProps, type Testimonial } from './components/sections/testimonial-section';
+export { LogoCloud, type LogoCloudProps, type LogoItem } from './components/sections/logo-cloud';
+export { StatsSection, type StatsSectionProps, type StatItem } from './components/sections/stats-section';
+export { BentoGrid, type BentoGridProps, type BentoItem } from './components/sections/bento-grid';
+export { CodeBlock, type CodeBlockProps } from './components/sections/code-block';
+
 // Layout
 export { MarketingHeader, type MarketingHeaderProps, type NavItem, type HeaderAction } from './components/layout/marketing-header';
 export { MarketingFooter, type MarketingFooterProps, type FooterLinkGroup, type SocialLink } from './components/layout/marketing-footer';

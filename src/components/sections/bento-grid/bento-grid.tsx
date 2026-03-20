@@ -1,0 +1,107 @@
+import * as React from 'react';
+import { cn } from '@/lib/cn';
+import { Section } from '@/components/primitives/section';
+import { Container } from '@/components/primitives/container';
+import { Heading } from '@/components/primitives/heading';
+import { Text } from '@/components/primitives/text';
+
+export interface BentoItem {
+  title: string;
+  description?: string;
+  icon?: React.ReactNode;
+  content?: React.ReactNode;
+  span?: 1 | 2;
+  rowSpan?: 1 | 2;
+}
+
+export interface BentoGridProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
+  eyebrow?: string;
+  title?: React.ReactNode;
+  subtitle?: string;
+  items: BentoItem[];
+  background?: 'default' | 'muted' | 'dark' | 'brand';
+}
+
+const spanClasses = {
+  1: '',
+  2: 'md:col-span-2',
+} as const;
+
+const rowSpanClasses = {
+  1: '',
+  2: 'md:row-span-2',
+} as const;
+
+export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
+  ({ className, eyebrow, title, subtitle, items, background = 'default', ...props }, ref) => {
+    const isDark = background === 'dark' || background === 'brand';
+
+    return (
+      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+        <Container>
+          {(eyebrow || title || subtitle) && (
+            <div className="mb-12 text-center lg:mb-16">
+              {eyebrow && (
+                <Text size="overline" tone="brand" className="mb-4">
+                  {eyebrow}
+                </Text>
+              )}
+              {title && (
+                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                  {title}
+                </Heading>
+              )}
+              {subtitle && (
+                <Text
+                  size="body-lg"
+                  tone={isDark ? 'inherit' : 'secondary'}
+                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                >
+                  {subtitle}
+                </Text>
+              )}
+            </div>
+          )}
+
+          <div className="grid gap-4 md:grid-cols-3 md:gap-6">
+            {items.map((item, i) => (
+              <div
+                key={i}
+                className={cn(
+                  'flex flex-col overflow-hidden rounded-2xl border p-6',
+                  isDark
+                    ? 'border-neutral-800 bg-neutral-900'
+                    : 'border-neutral-200 bg-white',
+                  spanClasses[item.span ?? 1],
+                  rowSpanClasses[item.rowSpan ?? 1],
+                )}
+              >
+                {item.icon && (
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-primary-500 dark:bg-primary-950">
+                    {item.icon}
+                  </div>
+                )}
+                <Heading as="h3" size="heading-md" className={isDark ? 'text-white' : ''}>
+                  {item.title}
+                </Heading>
+                {item.description && (
+                  <Text
+                    size="body-sm"
+                    tone={isDark ? 'inherit' : 'secondary'}
+                    className={cn('mt-2', isDark && 'text-neutral-400')}
+                  >
+                    {item.description}
+                  </Text>
+                )}
+                {item.content && (
+                  <div className="mt-4 flex-1">{item.content}</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+    );
+  },
+);
+BentoGrid.displayName = 'BentoGrid';

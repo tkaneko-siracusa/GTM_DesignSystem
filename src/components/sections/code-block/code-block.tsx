@@ -1,0 +1,135 @@
+import * as React from 'react';
+import { cn } from '@/lib/cn';
+import { Section } from '@/components/primitives/section';
+import { Container } from '@/components/primitives/container';
+import { Heading } from '@/components/primitives/heading';
+import { Text } from '@/components/primitives/text';
+
+export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
+  eyebrow?: string;
+  title?: React.ReactNode;
+  subtitle?: string;
+  code: string;
+  language?: string;
+  filename?: string;
+  description?: React.ReactNode;
+  layout?: 'centered' | 'split';
+  background?: 'default' | 'muted' | 'dark' | 'brand';
+}
+
+export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
+  (
+    {
+      className,
+      eyebrow,
+      title,
+      subtitle,
+      code,
+      language = 'typescript',
+      filename,
+      description,
+      layout = 'centered',
+      background = 'default',
+      ...props
+    },
+    ref,
+  ) => {
+    const [copied, setCopied] = React.useState(false);
+    const isDark = background === 'dark' || background === 'brand';
+
+    const handleCopy = () => {
+      navigator.clipboard.writeText(code).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    };
+
+    const codeElement = (
+      <div className="overflow-hidden rounded-xl border border-neutral-800 bg-neutral-950">
+        {filename && (
+          <div className="flex items-center justify-between border-b border-neutral-800 px-4 py-2">
+            <span className="text-xs text-neutral-500">{filename}</span>
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="text-xs text-neutral-500 transition-colors hover:text-neutral-300"
+            >
+              {copied ? '✓ Copied' : 'Copy'}
+            </button>
+          </div>
+        )}
+        <pre className="overflow-x-auto p-4">
+          <code className={cn('text-sm leading-relaxed text-neutral-300', `language-${language}`)}>
+            {code}
+          </code>
+        </pre>
+      </div>
+    );
+
+    if (layout === 'split' && (title || description)) {
+      return (
+        <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+          <Container>
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                {eyebrow && (
+                  <Text size="overline" tone="brand" className="mb-4">
+                    {eyebrow}
+                  </Text>
+                )}
+                {title && (
+                  <Heading as="h2" size="display-sm" className={isDark ? 'text-white' : ''}>
+                    {title}
+                  </Heading>
+                )}
+                {subtitle && (
+                  <Text
+                    size="body-lg"
+                    tone={isDark ? 'inherit' : 'secondary'}
+                    className={cn('mt-4', isDark && 'text-neutral-300')}
+                  >
+                    {subtitle}
+                  </Text>
+                )}
+                {description && <div className="mt-6">{description}</div>}
+              </div>
+              {codeElement}
+            </div>
+          </Container>
+        </Section>
+      );
+    }
+
+    return (
+      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+        <Container size="md">
+          {(eyebrow || title || subtitle) && (
+            <div className="mb-8 text-center">
+              {eyebrow && (
+                <Text size="overline" tone="brand" className="mb-4">
+                  {eyebrow}
+                </Text>
+              )}
+              {title && (
+                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                  {title}
+                </Heading>
+              )}
+              {subtitle && (
+                <Text
+                  size="body-lg"
+                  tone={isDark ? 'inherit' : 'secondary'}
+                  className={cn('mx-auto mt-4 max-w-xl', isDark && 'text-neutral-300')}
+                >
+                  {subtitle}
+                </Text>
+              )}
+            </div>
+          )}
+          {codeElement}
+        </Container>
+      </Section>
+    );
+  },
+);
+CodeBlock.displayName = 'CodeBlock';
