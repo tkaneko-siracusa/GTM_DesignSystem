@@ -33,7 +33,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "storybook": "storybook dev -p 6006 --host 0.0.0.0",
+    "storybook": "storybook dev -p 6006 --host 127.0.0.1",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

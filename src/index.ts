@@ -52,3 +52,8 @@ export { PricingTable, type PricingTableProps } from './components/sections/pric
 export { PricingCard, pricingCardVariants, type PricingCardProps, type PricingFeature } from './components/sections/pricing';
 export { CTASection, ctaSectionVariants, type CTASectionProps, type CTAAction } from './components/sections/cta-section';
 export { FAQSection, type FAQSectionProps, type FAQItem } from './components/sections/faq-section';
+
+// Layout
+export { MarketingHeader, type MarketingHeaderProps, type NavItem, type HeaderAction } from './components/layout/marketing-header';
+export { MarketingFooter, type MarketingFooterProps, type FooterLinkGroup, type SocialLink } from './components/layout/marketing-footer';
+export { PageLayout, type PageLayoutProps } from './components/layout/page-layout';
