@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { StatsSection } from './stats-section';
 
 const stats = [
@@ -30,5 +31,10 @@ describe('StatsSection', () => {
   it('section要素としてレンダリングする', () => {
     const { container } = render(<StatsSection stats={stats} />);
     expect(container.querySelector('section')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<StatsSection stats={stats} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

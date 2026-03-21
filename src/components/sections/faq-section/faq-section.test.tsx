@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { FAQSection } from './faq-section';
 
 const mockItems = [
@@ -37,5 +38,20 @@ describe('FAQSection', () => {
   it('section要素としてレンダリングする', () => {
     const { container } = render(<FAQSection items={mockItems} />);
     expect(container.querySelector('section')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<FAQSection items={mockItems} />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('キーボードでアコーディオンを操作できる', () => {
+    render(<FAQSection items={mockItems} />);
+    const button = screen.getByText('Polastackとは何ですか？').closest('button')!;
+    button.focus();
+    expect(document.activeElement).toBe(button);
+    fireEvent.keyDown(button, { key: 'Enter' });
+    fireEvent.click(button);
+    expect(button).toHaveAttribute('aria-expanded', 'true');
   });
 });

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { Logo } from './logo';
 
 describe('Logo', () => {
@@ -29,5 +30,10 @@ describe('Logo', () => {
     const { container } = render(<Logo height={48} />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('height', '48');
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<Logo />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

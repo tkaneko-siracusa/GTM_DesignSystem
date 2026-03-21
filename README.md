@@ -51,6 +51,23 @@ import '@polastack/gtm-design-system/globals.css';
 | 最大サイズ | 24px | 72px (display-2xl) |
 | Display系 | なし | 30 / 36 / 48 / 60 / 72px |
 
+### コンポーネント一覧
+
+#### プリミティブ（12）
+Container, Section, Grid, Heading, Text, MarketingButton, Logo, GradientText, Divider, Link, Badge, AnimatedCounter
+
+#### セクション — Tier 1（6）
+HeroSection, FeatureGrid, PricingTable, PricingCard, CTASection, FAQSection
+
+#### セクション — Tier 2（7）
+FeatureShowcase, ComparisonTable, TestimonialSection, LogoCloud, StatsSection, BentoGrid, CodeBlock
+
+#### プロダクト固有（3）
+ModuleOverview, MigrationComparison, AirPocketFeature
+
+#### レイアウト（3）
+MarketingHeader, MarketingFooter, PageLayout
+
 ### 技術スタック
 
 - **React** 18/19
@@ -141,6 +158,23 @@ Shared brand identity with `@polastack/design-system`, extended for marketing:
 | Base size | 14px | 16px |
 | Max size | 24px | 72px (display-2xl) |
 | Display sizes | — | 30 / 36 / 48 / 60 / 72px |
+
+### Components
+
+#### Primitives (12)
+Container, Section, Grid, Heading, Text, MarketingButton, Logo, GradientText, Divider, Link, Badge, AnimatedCounter
+
+#### Sections — Tier 1 (6)
+HeroSection, FeatureGrid, PricingTable, PricingCard, CTASection, FAQSection
+
+#### Sections — Tier 2 (7)
+FeatureShowcase, ComparisonTable, TestimonialSection, LogoCloud, StatsSection, BentoGrid, CodeBlock
+
+#### Product-specific (3)
+ModuleOverview, MigrationComparison, AirPocketFeature
+
+#### Layout (3)
+MarketingHeader, MarketingFooter, PageLayout
 
 ### Tech Stack
 

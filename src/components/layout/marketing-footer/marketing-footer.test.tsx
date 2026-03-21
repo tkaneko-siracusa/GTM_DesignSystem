@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { MarketingFooter } from './marketing-footer';
 
 describe('MarketingFooter', () => {
@@ -50,5 +51,15 @@ describe('MarketingFooter', () => {
       />,
     );
     expect(screen.getByLabelText('X')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(
+      <MarketingFooter
+        copyright="© 2025 Polastack"
+        linkGroups={[{ title: 'Product', links: [{ label: 'Features', href: '/features' }] }]}
+      />,
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { LogoCloud } from './logo-cloud';
 
 const logos = [
@@ -28,5 +29,10 @@ describe('LogoCloud', () => {
   it('section要素としてレンダリングする', () => {
     const { container } = render(<LogoCloud logos={logos} />);
     expect(container.querySelector('section')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<LogoCloud logos={logos} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { ComparisonTable } from './comparison-table';
 
 const columns = [
@@ -33,5 +34,10 @@ describe('ComparisonTable', () => {
   it('table要素を含む', () => {
     render(<ComparisonTable columns={columns} rows={rows} />);
     expect(screen.getByRole('table')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<ComparisonTable columns={columns} rows={rows} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

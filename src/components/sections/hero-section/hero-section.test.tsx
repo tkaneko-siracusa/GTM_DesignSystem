@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { HeroSection } from './hero-section';
 
 describe('HeroSection', () => {
@@ -47,5 +48,10 @@ describe('HeroSection', () => {
   it('section要素としてレンダリングする', () => {
     const { container } = render(<HeroSection title="タイトル" />);
     expect(container.querySelector('section')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<HeroSection title="アクセシブルなヒーロー" />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });
