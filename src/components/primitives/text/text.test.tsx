@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { Text } from './text';
 
 describe('Text', () => {
@@ -23,5 +24,10 @@ describe('Text', () => {
   it('toneバリアントを適用する', () => {
     const { container } = render(<Text tone="muted">薄いテキスト</Text>);
     expect(container.firstChild).toHaveClass('text-neutral-500');
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<Text>アクセシブルなテキスト</Text>);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

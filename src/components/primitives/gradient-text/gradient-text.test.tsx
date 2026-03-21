@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { GradientText } from './gradient-text';
 
 describe('GradientText', () => {
@@ -18,5 +19,10 @@ describe('GradientText', () => {
     render(<GradientText as="h1">見出し</GradientText>);
     const el = screen.getByText('見出し');
     expect(el.tagName).toBe('H1');
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<GradientText as="span">アクセシブル</GradientText>);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

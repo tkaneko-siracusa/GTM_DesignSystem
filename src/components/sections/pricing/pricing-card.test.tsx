@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { PricingCard } from './pricing-card';
 
 const defaultProps = {
@@ -44,5 +45,10 @@ describe('PricingCard', () => {
   it('ハイライトスタイルを適用する', () => {
     const { container } = render(<PricingCard {...defaultProps} highlighted />);
     expect(container.firstChild).toHaveClass('border-primary-500');
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<PricingCard {...defaultProps} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

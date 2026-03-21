@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { AirPocketFeature } from './air-pocket-feature';
 
 const airPockets = [
@@ -36,5 +37,10 @@ describe('AirPocketFeature', () => {
   it('section要素としてレンダリングする', () => {
     const { container } = render(<AirPocketFeature airPockets={airPockets} />);
     expect(container.querySelector('section')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<AirPocketFeature airPockets={airPockets} />);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

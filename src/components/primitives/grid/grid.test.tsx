@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { Grid } from './grid';
 
 describe('Grid', () => {
@@ -22,5 +23,10 @@ describe('Grid', () => {
   it('gapバリアントを適用する', () => {
     const { container } = render(<Grid gap="lg">内容</Grid>);
     expect(container.firstChild).toHaveClass('gap-8');
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<Grid><div>アイテム</div></Grid>);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

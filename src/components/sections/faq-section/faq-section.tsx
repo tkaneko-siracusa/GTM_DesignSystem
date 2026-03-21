@@ -18,20 +18,23 @@ export interface FAQSectionProps extends Omit<React.HTMLAttributes<HTMLElement>,
   background?: 'default' | 'muted' | 'dark' | 'brand';
 }
 
-const AccordionItem: React.FC<{ item: FAQItem; isDark: boolean }> = ({ item, isDark }) => {
+const AccordionItem: React.FC<{ item: FAQItem; isDark: boolean; index: number }> = ({ item, isDark, index }) => {
   const [open, setOpen] = React.useState(false);
   const contentRef = React.useRef<HTMLDivElement>(null);
+  const id = `faq-${index}`;
 
   return (
     <div className={cn('border-b', isDark ? 'border-neutral-800' : 'border-neutral-200')}>
       <button
         type="button"
+        id={`${id}-trigger`}
         className={cn(
           'flex w-full items-center justify-between py-5 text-left transition-colors',
           isDark ? 'text-white hover:text-primary-400' : 'text-neutral-900 hover:text-primary-500',
         )}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
+        aria-controls={`${id}-panel`}
       >
         <Heading as="h3" size="heading-sm" className="pr-8">
           {item.question}
@@ -51,9 +54,11 @@ const AccordionItem: React.FC<{ item: FAQItem; isDark: boolean }> = ({ item, isD
       </button>
       <div
         ref={contentRef}
+        id={`${id}-panel`}
         className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
         style={{ maxHeight: open ? contentRef.current?.scrollHeight : 0 }}
         role="region"
+        aria-labelledby={`${id}-trigger`}
       >
         <div className="pb-5">
           <Text size="body-md" tone={isDark ? 'inherit' : 'secondary'} className={isDark ? 'text-neutral-300' : ''}>
@@ -98,7 +103,7 @@ export const FAQSection = React.forwardRef<HTMLElement, FAQSectionProps>(
 
           <div>
             {items.map((item, i) => (
-              <AccordionItem key={i} item={item} isDark={isDark} />
+              <AccordionItem key={i} item={item} isDark={isDark} index={i} />
             ))}
           </div>
         </Container>

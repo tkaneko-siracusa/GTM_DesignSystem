@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { MarketingHeader } from './marketing-header';
 
 const navItems = [
@@ -41,5 +42,21 @@ describe('MarketingHeader', () => {
   it('カスタムロゴを表示する', () => {
     render(<MarketingHeader logo={<span data-testid="custom-logo">Logo</span>} />);
     expect(screen.getByTestId('custom-logo')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(
+      <MarketingHeader navItems={navItems} actions={actions} />,
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('キーボードでモバイルメニューを操作できる', () => {
+    render(<MarketingHeader navItems={navItems} />);
+    const menuButton = screen.getByLabelText('Toggle menu');
+    menuButton.focus();
+    fireEvent.keyDown(menuButton, { key: 'Enter' });
+    fireEvent.click(menuButton);
+    expect(menuButton).toHaveAttribute('aria-expanded', 'true');
   });
 });

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { PageLayout } from './page-layout';
 
 describe('PageLayout', () => {
@@ -41,5 +42,10 @@ describe('PageLayout', () => {
     );
     expect(screen.getByTestId('custom-header')).toBeInTheDocument();
     expect(screen.getByTestId('custom-footer')).toBeInTheDocument();
+  });
+
+  it('a11y違反がない', async () => {
+    const { container } = render(<PageLayout>アクセシブルなページ</PageLayout>);
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -70,7 +70,7 @@ export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProp
             <table className="w-full border-collapse" role="table">
               <thead>
                 <tr>
-                  <th className="p-4 text-left" />
+                  <th className="p-4 text-left"><span className="sr-only">Feature</span></th>
                   {columns.map((col, i) => (
                     <th
                       key={i}
