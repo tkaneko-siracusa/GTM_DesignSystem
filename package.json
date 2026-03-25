@@ -24,6 +24,10 @@
       "import": "./dist/tokens/index.js",
       "types": "./dist/tokens/index.d.ts"
     },
+    "./slides": {
+      "import": "./dist/slides.js",
+      "types": "./dist/slides.d.ts"
+    },
     "./globals.css": "./src/styles/globals.css"
   },
   "files": [
@@ -55,6 +59,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.577.0",
+    "spectacle": "^10.2.3",
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {

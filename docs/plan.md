@@ -100,3 +100,16 @@
 - [x] Header ドロップダウンナビ対応
 - [x] SecurityBadges セクション（日本市場向け認証バッジ）
 - [x] CaseStudySection セクション（日本市場向けケーススタディ）
+
+## Phase 9: Sales Kit スライドコンポーネント
+
+- [x] Spectacle 導入（peerDependencyとして管理）
+- [x] Polastack テーマ定義（polastackTheme / polastackDarkTheme）
+- [x] SlideDeck — テーマ適用済み Deck ラッパー
+- [x] TitleSlide — 表紙・区切りスライド
+- [x] ContentSlide — 見出し + 自由コンテンツ
+- [x] SplitSlide — 左右2カラム
+- [x] StatSlide — インパクト数値表示
+- [x] QuoteSlide — テスティモニアル引用
+- [x] 別エントリポイント `@polastack/gtm-design-system/slides` として公開
+- [x] Storybook ストーリー（Polastack Sales Pitch Deck サンプル + レイアウト一覧）
