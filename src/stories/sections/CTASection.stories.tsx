@@ -63,6 +63,31 @@ export const CenteredBrand: Story = {
   },
 };
 
+export const WithMeshAndSocialProof: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <CTASection
+        layout="centered"
+        background="dark"
+        backgroundMesh
+        title={isJa ? '無料で開発を始める' : 'Start building for free'}
+        subtitle={
+          isJa
+            ? 'クレジットカード不要。全8モジュールを今すぐ試せます。'
+            : 'No credit card required. Try all 8 modules instantly.'
+        }
+        actions={[
+          { label: isJa ? '無料で始める' : 'Get Started Free', href: '/signup', variant: 'gradient' },
+          { label: isJa ? 'デモを予約' : 'Book a Demo', href: '/demo', variant: 'secondary' },
+        ]}
+        socialProof={isJa ? '3,000+ の開発者が利用中' : 'Trusted by 3,000+ developers'}
+        note="No Credit Card Required"
+      />
+    );
+  },
+};
+
 export const Split: Story = {
   render: (_, { globals }) => {
     const isJa = globals.locale === 'ja';

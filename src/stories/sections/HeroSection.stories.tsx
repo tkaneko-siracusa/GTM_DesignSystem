@@ -79,6 +79,93 @@ export const SplitImage: Story = {
   },
 };
 
+export const WithGridPattern: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <HeroSection
+        layout="centered"
+        background="dark"
+        backgroundPattern="grid"
+        title={
+          <Heading as="h1" size="display-2xl" className="text-white">
+            {isJa ? (
+              <>
+                Agent Coding時代の、
+                <br />
+                <GradientText as="span">消えない複雑性を解決する。</GradientText>
+              </>
+            ) : (
+              <>
+                Solve the unsolvable complexity
+                <br />
+                <GradientText as="span">of the Agent Coding era.</GradientText>
+              </>
+            )}
+          </Heading>
+        }
+        subtitle={
+          isJa
+            ? '8モジュール統合のEnterprise Agent Stackで、エンタープライズグレードの業務アプリを高速に構築。'
+            : 'Build enterprise-grade business applications rapidly with an 8-module integrated Enterprise Agent Stack.'
+        }
+        actions={[
+          { label: isJa ? '無料で開発を始める' : 'Start Free', href: '/signup', variant: 'gradient' },
+          { label: isJa ? 'ドキュメント' : 'Documentation', href: '/docs', variant: 'secondary' },
+        ]}
+      />
+    );
+  },
+};
+
+export const WithDotsPattern: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <HeroSection
+        layout="centered"
+        background="dark"
+        backgroundPattern="dots"
+        title={isJa ? 'ドットパターン背景' : 'Dots Pattern Background'}
+        subtitle={isJa ? 'backgroundPattern="dots" を指定した場合の表示例です。' : 'Example with backgroundPattern="dots" prop.'}
+        actions={[{ label: isJa ? '無料で始める' : 'Get Started', href: '/signup', variant: 'gradient' }]}
+      />
+    );
+  },
+};
+
+export const WithMeshPattern: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <HeroSection
+        layout="centered"
+        background="dark"
+        backgroundPattern="mesh"
+        title={isJa ? 'メッシュグラデーション背景' : 'Mesh Gradient Background'}
+        subtitle={isJa ? 'backgroundPattern="mesh" を指定した場合の表示例です。' : 'Example with backgroundPattern="mesh" prop.'}
+        actions={[{ label: isJa ? '無料で始める' : 'Get Started', href: '/signup', variant: 'gradient' }]}
+      />
+    );
+  },
+};
+
+export const WithRadialGlow: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <HeroSection
+        layout="centered"
+        background="dark"
+        backgroundPattern="radial-glow"
+        title={isJa ? 'ラジアルグロー背景' : 'Radial Glow Background'}
+        subtitle={isJa ? 'backgroundPattern="radial-glow" を指定した場合の表示例です。' : 'Example with backgroundPattern="radial-glow" prop.'}
+        actions={[{ label: isJa ? '無料で始める' : 'Get Started', href: '/signup', variant: 'gradient' }]}
+      />
+    );
+  },
+};
+
 export const DarkBackground: Story = {
   render: (_, { globals }) => {
     const isJa = globals.locale === 'ja';

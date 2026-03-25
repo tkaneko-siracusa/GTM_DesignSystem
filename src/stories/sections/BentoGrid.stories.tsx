@@ -82,3 +82,62 @@ export const Default: Story = {
     );
   },
 };
+
+export const WithVariants: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <BentoGrid
+        eyebrow={isJa ? 'ハイライト' : 'HIGHLIGHTS'}
+        title={isJa ? 'カードバリエーション' : 'Card Variations'}
+        items={
+          isJa
+            ? [
+                {
+                  title: 'Featured カード',
+                  description: 'variant="featured" でプライマリカラーのグラデーション背景とグロー効果。',
+                  variant: 'featured',
+                  span: 2,
+                },
+                {
+                  title: 'Dark カード',
+                  description: 'variant="dark" でダーク背景。視覚的なコントラスト。',
+                  variant: 'dark',
+                },
+                {
+                  title: 'Default カード 1',
+                  description: 'デフォルトの白背景カード。',
+                },
+                {
+                  title: 'Default カード 2',
+                  description: 'すべてのカードにホバーインタラクション付き。',
+                  span: 2,
+                },
+              ]
+            : [
+                {
+                  title: 'Featured Card',
+                  description: 'variant="featured" applies primary gradient background with glow effect.',
+                  variant: 'featured',
+                  span: 2,
+                },
+                {
+                  title: 'Dark Card',
+                  description: 'variant="dark" for dark background with visual contrast.',
+                  variant: 'dark',
+                },
+                {
+                  title: 'Default Card 1',
+                  description: 'Default white background card.',
+                },
+                {
+                  title: 'Default Card 2',
+                  description: 'All cards have hover interactions.',
+                  span: 2,
+                },
+              ]
+        }
+      />
+    );
+  },
+};
