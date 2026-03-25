@@ -5,9 +5,10 @@ import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
 import { MarketingButton } from '@/components/primitives/marketing-button';
 import { Badge } from '@/components/primitives/badge';
+import { Check, Minus } from 'lucide-react';
 
 export const pricingCardVariants = cva(
-  'relative flex flex-col rounded-2xl border p-6 lg:p-8',
+  'relative flex flex-col rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl lg:p-8',
   {
     variants: {
       highlighted: {
@@ -100,9 +101,15 @@ export const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       <ul className="mb-8 flex-1 space-y-3">
         {features.map((feature, i) => (
           <li key={i} className="flex items-start gap-3">
-            <span className={cn('mt-0.5 text-sm', feature.included ? 'text-primary-500' : 'text-neutral-400')}>
-              {feature.included ? '✓' : '—'}
-            </span>
+            {feature.included ? (
+              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+                <Check className="h-3 w-3" />
+              </span>
+            ) : (
+              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500">
+                <Minus className="h-3 w-3" />
+              </span>
+            )}
             <Text
               as="span"
               size="body-sm"

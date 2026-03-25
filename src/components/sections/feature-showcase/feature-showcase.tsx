@@ -5,6 +5,7 @@ import { Container } from '@/components/primitives/container';
 import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
 import { Badge } from '@/components/primitives/badge';
+import { Check } from 'lucide-react';
 
 export interface ShowcaseItem {
   badge?: string;
@@ -84,7 +85,9 @@ export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProp
                       <ul className="mt-6 space-y-2">
                         {item.features.map((feat, j) => (
                           <li key={j} className="flex items-center gap-3">
-                            <span className="text-sm text-primary-500">✓</span>
+                            <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+                              <Check className="h-3 w-3" />
+                            </span>
                             <Text as="span" size="body-sm" tone={isDark ? 'inherit' : 'default'} className={isDark ? 'text-neutral-200' : ''}>
                               {feat}
                             </Text>

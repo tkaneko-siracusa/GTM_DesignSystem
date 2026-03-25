@@ -23,7 +23,7 @@ describe('LogoCloud', () => {
   it('scrollingモードでロゴを複製する', () => {
     render(<LogoCloud logos={logos} scrolling />);
     const allLogoA = screen.getAllByText('Logo A');
-    expect(allLogoA.length).toBe(2);
+    expect(allLogoA.length).toBe(3);
   });
 
   it('section要素としてレンダリングする', () => {

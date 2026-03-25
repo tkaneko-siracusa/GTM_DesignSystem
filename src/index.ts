@@ -39,6 +39,12 @@ export { GradientText, gradientTextVariants, type GradientTextProps } from './co
 export { MarketingButton, marketingButtonVariants, type MarketingButtonProps } from './components/primitives/marketing-button';
 export { Link, linkVariants, type LinkProps } from './components/primitives/link';
 
+// Primitives - Animation
+export { AnimateOnScroll, type AnimateOnScrollProps, type ScrollAnimation } from './components/primitives/animate-on-scroll';
+
+// Hooks
+export { useInView, type UseInViewOptions } from './hooks/useInView';
+
 // Primitives - Display
 export { Logo, type LogoProps } from './components/primitives/logo';
 export { Badge, badgeVariants, type BadgeProps } from './components/primitives/badge';
@@ -46,7 +52,7 @@ export { Divider, dividerVariants, type DividerProps } from './components/primit
 export { AnimatedCounter, type AnimatedCounterProps } from './components/primitives/animated-counter';
 
 // Sections
-export { HeroSection, heroSectionVariants, type HeroSectionProps, type HeroAction } from './components/sections/hero-section';
+export { HeroSection, heroSectionVariants, type HeroSectionProps, type HeroAction, type HeroBackgroundPattern } from './components/sections/hero-section';
 export { FeatureGrid, type FeatureGridProps, type FeatureItem } from './components/sections/feature-grid';
 export { PricingTable, type PricingTableProps } from './components/sections/pricing';
 export { PricingCard, pricingCardVariants, type PricingCardProps, type PricingFeature } from './components/sections/pricing';
@@ -63,6 +69,9 @@ export { CodeBlock, type CodeBlockProps } from './components/sections/code-block
 export { ModuleOverview, type ModuleOverviewProps, type ModuleInfo, type ArchitectureLayer } from './components/sections/module-overview';
 export { MigrationComparison, type MigrationComparisonProps, type MigrationPath, type MigrationTrigger } from './components/sections/migration-comparison';
 export { AirPocketFeature, type AirPocketFeatureProps, type AirPocket } from './components/sections/air-pocket-feature';
+
+export { SecurityBadges, type SecurityBadgesProps, type SecurityBadge } from './components/sections/security-badges';
+export { CaseStudySection, type CaseStudySectionProps, type CaseStudy } from './components/sections/case-study-card';
 
 // Layout
 export { MarketingHeader, type MarketingHeaderProps, type NavItem, type HeaderAction } from './components/layout/marketing-header';

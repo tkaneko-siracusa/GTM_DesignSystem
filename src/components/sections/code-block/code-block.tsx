@@ -4,6 +4,7 @@ import { Section } from '@/components/primitives/section';
 import { Container } from '@/components/primitives/container';
 import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
+import { codeToHtml } from 'shiki';
 
 export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
@@ -15,6 +16,8 @@ export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 
   description?: React.ReactNode;
   layout?: 'centered' | 'split';
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  showLineNumbers?: boolean;
+  highlightLines?: number[];
 }
 
 export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
@@ -30,12 +33,24 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
       description,
       layout = 'centered',
       background = 'default',
+      showLineNumbers = false,
+      highlightLines = [],
       ...props
     },
     ref,
   ) => {
     const [copied, setCopied] = React.useState(false);
+    const [highlightedHtml, setHighlightedHtml] = React.useState<string | null>(null);
     const isDark = background === 'dark' || background === 'brand';
+
+    React.useEffect(() => {
+      codeToHtml(code, {
+        lang: language,
+        theme: 'github-dark',
+      }).then(setHighlightedHtml).catch(() => {
+        // フォールバック: ハイライトなし
+      });
+    }, [code, language]);
 
     const handleCopy = () => {
       navigator.clipboard.writeText(code).then(() => {
@@ -46,23 +61,41 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
 
     const codeElement = (
       <div className="overflow-hidden rounded-xl border border-neutral-800 bg-neutral-950">
-        {filename && (
-          <div className="flex items-center justify-between border-b border-neutral-800 px-4 py-2">
-            <span className="text-xs text-neutral-500">{filename}</span>
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="text-xs text-neutral-500 transition-colors hover:text-neutral-300"
-            >
-              {copied ? '✓ Copied' : 'Copy'}
-            </button>
+        {/* ターミナル風ウィンドウクロム */}
+        <div className="flex items-center justify-between border-b border-neutral-800 px-4 py-2.5">
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1.5">
+              <span className="h-3 w-3 rounded-full bg-neutral-700" />
+              <span className="h-3 w-3 rounded-full bg-neutral-700" />
+              <span className="h-3 w-3 rounded-full bg-neutral-700" />
+            </div>
+            {filename && (
+              <span className="text-xs text-neutral-500">{filename}</span>
+            )}
           </div>
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="text-xs text-neutral-500 transition-colors hover:text-neutral-300"
+          >
+            {copied ? '✓ Copied' : 'Copy'}
+          </button>
+        </div>
+        {highlightedHtml ? (
+          <div
+            className={cn(
+              'overflow-x-auto p-4 text-sm leading-relaxed [&_pre]:!m-0 [&_pre]:!bg-transparent [&_pre]:!p-0',
+              showLineNumbers && '[&_.line]:before:mr-6 [&_.line]:before:inline-block [&_.line]:before:w-4 [&_.line]:before:text-right [&_.line]:before:text-neutral-600 [&_.line]:before:content-[counter(line)] [&_.line]:[counter-increment:line] [&_pre]:[counter-reset:line]',
+            )}
+            dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+          />
+        ) : (
+          <pre className="overflow-x-auto p-4">
+            <code className={cn('text-sm leading-relaxed text-neutral-300', `language-${language}`)}>
+              {code}
+            </code>
+          </pre>
         )}
-        <pre className="overflow-x-auto p-4">
-          <code className={cn('text-sm leading-relaxed text-neutral-300', `language-${language}`)}>
-            {code}
-          </code>
-        </pre>
       </div>
     );
 

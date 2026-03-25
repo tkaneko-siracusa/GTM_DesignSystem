@@ -72,3 +72,31 @@
 - [x] キーボードナビゲーション検証
 - [x] バンドルサイズ最適化
 - [x] README.md（日英併記）
+
+## Phase 8: UX/UI 品質改善
+
+### Critical
+- [x] AnimateOnScroll + useInView（スクロール連動アニメーション）
+- [x] HeroSection 背景パターン（grid/dots/mesh/radial-glow）
+- [x] MarketingButton マイクロインタラクション（hover lift, rightIcon, gradient shift）
+- [x] CodeBlock シンタックスハイライト（shiki）
+- [x] カードホバーインタラクション統一（FeatureGrid/BentoGrid/Testimonial/Pricing）
+
+### High
+- [x] タイポグラフィ letter-spacing 最適化（display系サイズ別tracking）
+- [x] ダークモード サーフェス階層強化（neutral-850追加）
+- [x] 比較表 UX改善（sticky header/列、SVGアイコン化）
+- [x] CTAセクション訴求力強化（backgroundMesh, socialProof, logoStrip）
+- [x] LogoCloud スクロールアニメーション修正（3倍複製, hover pause, フェードエッジ拡大）
+- [x] StatsSection AnimatedCounter 適用
+- [x] テスティモニアル引用デザイン強化（装飾引用符, rating, companyLogo）
+- [x] チェックマーク表現統一（✓/— → lucide-react SVGアイコン）
+
+### Medium
+- [x] 日本語 word-break 修正（break-all → overflow-wrap: anywhere）
+- [x] FAQ アコーディオン滑らかさ改善（opacity アニメーション追加）
+- [x] BentoGrid 視覚的バリエーション（default/featured/dark）
+- [x] グラデーションボーダーユーティリティ（.gradient-border）
+- [x] Header ドロップダウンナビ対応
+- [x] SecurityBadges セクション（日本市場向け認証バッジ）
+- [x] CaseStudySection セクション（日本市場向けケーススタディ）

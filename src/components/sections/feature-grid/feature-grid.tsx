@@ -8,7 +8,7 @@ import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
 
 const featureCardVariants = cva(
-  'rounded-2xl border border-neutral-200 p-6 transition-shadow hover:shadow-lg dark:border-neutral-800',
+  'rounded-2xl border border-neutral-200 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary-500/30 hover:shadow-xl dark:border-neutral-800',
   {
     variants: {
       cardStyle: {
