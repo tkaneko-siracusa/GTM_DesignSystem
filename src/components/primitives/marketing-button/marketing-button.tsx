@@ -3,18 +3,18 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
 export const marketingButtonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold transition-all duration-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold transition-all duration-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         primary:
-          'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 hover:shadow-glow-primary',
+          'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 hover:shadow-glow-primary hover:-translate-y-0.5 active:translate-y-0',
         secondary:
-          'border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-sunken)] hover:border-primary-300',
+          'border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-sunken)] hover:border-primary-300 hover:-translate-y-0.5 active:translate-y-0',
         ghost:
           'text-[var(--color-on-surface)] hover:bg-[var(--color-surface-muted)]',
         gradient:
-          'bg-gradient-to-r from-primary-500 to-primary-400 text-white hover:from-primary-600 hover:to-primary-500 hover:shadow-glow-primary',
+          'bg-gradient-to-r from-primary-500 to-primary-400 text-white hover:from-primary-600 hover:to-primary-500 hover:shadow-glow-primary bg-[length:200%_100%] hover:bg-[position:right] hover:-translate-y-0.5 active:translate-y-0',
       },
       size: {
         sm: 'h-9 px-4 text-body-sm',
@@ -34,12 +34,24 @@ export interface MarketingButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof marketingButtonVariants> {
   href?: string;
+  rightIcon?: React.ReactNode;
 }
 
 export const MarketingButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   MarketingButtonProps
->(({ className, variant, size, href, ...props }, ref) => {
+>(({ className, variant, size, href, rightIcon, children, ...props }, ref) => {
+  const content = (
+    <>
+      {children}
+      {rightIcon && (
+        <span className="transition-transform duration-200 group-hover:translate-x-1">
+          {rightIcon}
+        </span>
+      )}
+    </>
+  );
+
   if (href) {
     return (
       <a
@@ -47,7 +59,9 @@ export const MarketingButton = React.forwardRef<
         href={href}
         className={cn(marketingButtonVariants({ variant, size }), className)}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-      />
+      >
+        {content}
+      </a>
     );
   }
 
@@ -56,7 +70,9 @@ export const MarketingButton = React.forwardRef<
       ref={ref as React.Ref<HTMLButtonElement>}
       className={cn(marketingButtonVariants({ variant, size }), className)}
       {...props}
-    />
+    >
+      {content}
+    </button>
   );
 });
 MarketingButton.displayName = 'MarketingButton';

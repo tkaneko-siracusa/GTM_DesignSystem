@@ -4,11 +4,18 @@ import { Section } from '@/components/primitives/section';
 import { Container } from '@/components/primitives/container';
 import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
+import { AnimatedCounter } from '@/components/primitives/animated-counter';
 
 export interface StatItem {
   value: string;
+  /** AnimatedCounter 用の数値（animated=true 時に使用） */
+  numericValue?: number;
   label: string;
   description?: string;
+  /** 数値の接頭辞（例: "¥"） */
+  prefix?: string;
+  /** 数値の接尾辞（例: "%", "+"） */
+  suffix?: string;
 }
 
 export interface StatsSectionProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
@@ -17,10 +24,12 @@ export interface StatsSectionProps extends Omit<React.HTMLAttributes<HTMLElement
   subtitle?: string;
   stats: StatItem[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  /** カウントアップアニメーションを有効にする */
+  animated?: boolean;
 }
 
 export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
-  ({ className, eyebrow, title, subtitle, stats, background = 'default', ...props }, ref) => {
+  ({ className, eyebrow, title, subtitle, stats, background = 'default', animated = false, ...props }, ref) => {
     const isDark = background === 'dark' || background === 'brand';
 
     return (
@@ -64,7 +73,15 @@ export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
                     isDark ? 'text-white' : 'text-primary-500',
                   )}
                 >
-                  {stat.value}
+                  {animated && stat.numericValue != null ? (
+                    <AnimatedCounter
+                      value={stat.numericValue}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                    />
+                  ) : (
+                    stat.value
+                  )}
                 </div>
                 <Text
                   as="div"

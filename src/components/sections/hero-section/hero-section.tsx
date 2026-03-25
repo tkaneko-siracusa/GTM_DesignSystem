@@ -28,6 +28,8 @@ export interface HeroAction {
   variant?: 'primary' | 'secondary' | 'ghost' | 'gradient';
 }
 
+export type HeroBackgroundPattern = 'grid' | 'dots' | 'mesh' | 'radial-glow' | 'none';
+
 export interface HeroSectionProps
   extends Omit<React.HTMLAttributes<HTMLElement>, 'title'>,
     VariantProps<typeof heroSectionVariants> {
@@ -38,6 +40,7 @@ export interface HeroSectionProps
   actions?: HeroAction[];
   image?: React.ReactNode;
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  backgroundPattern?: HeroBackgroundPattern;
 }
 
 export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
@@ -52,10 +55,30 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
       actions,
       image,
       background = 'default',
+      backgroundPattern = 'none',
       ...props
     },
     ref,
   ) => {
+    const patternElement = backgroundPattern !== 'none' && (
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          className={cn(
+            'absolute inset-0',
+            backgroundPattern === 'grid' &&
+              '[background-image:linear-gradient(rgba(27,164,145,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(27,164,145,0.08)_1px,transparent_1px)] [background-size:48px_48px]',
+            backgroundPattern === 'dots' &&
+              '[background-image:radial-gradient(circle,rgba(27,164,145,0.15)_1px,transparent_1px)] [background-size:24px_24px]',
+            backgroundPattern === 'mesh' &&
+              '[background-image:radial-gradient(ellipse_at_20%_50%,rgba(27,164,145,0.15),transparent_50%),radial-gradient(ellipse_at_80%_20%,rgba(59,130,246,0.1),transparent_50%),radial-gradient(ellipse_at_50%_80%,rgba(27,164,145,0.1),transparent_50%)]',
+            backgroundPattern === 'radial-glow' &&
+              '[background-image:radial-gradient(ellipse_at_center,rgba(27,164,145,0.2),transparent_70%)]',
+          )}
+          style={{ maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)' }}
+        />
+      </div>
+    );
+
     const titleElement =
       typeof title === 'string' && titleGradient ? (
         <Heading as="h1" size="display-2xl">
@@ -130,6 +153,7 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
           className={cn(heroSectionVariants({ layout }), className)}
           {...props}
         >
+          {patternElement}
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div className="space-y-8">{content}</div>
@@ -148,6 +172,7 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
         className={cn(heroSectionVariants({ layout }), className)}
         {...props}
       >
+        {patternElement}
         <Container>
           <div className="space-y-8">{content}</div>
         </Container>

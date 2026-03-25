@@ -41,11 +41,11 @@ export const LogoCloud = React.forwardRef<HTMLElement, LogoCloudProps>(
           )}
 
           {scrolling ? (
-            <div className="relative overflow-hidden">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white dark:from-neutral-950" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white dark:from-neutral-950" />
-              <div className="animate-scroll flex gap-12">
-                {[...logos, ...logos].map((item, i) => (
+            <div className="group relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[var(--color-surface)] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[var(--color-surface)] to-transparent" />
+              <div className="flex gap-12 animate-[scroll_40s_linear_infinite] group-hover:[animation-play-state:paused]">
+                {[...logos, ...logos, ...logos].map((item, i) => (
                   <div
                     key={i}
                     className={cn(

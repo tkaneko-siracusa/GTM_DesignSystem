@@ -7,6 +7,7 @@ import { Logo } from '@/components/primitives/logo';
 export interface NavItem {
   label: string;
   href: string;
+  children?: NavItem[];
 }
 
 export interface HeaderAction {
@@ -57,15 +58,42 @@ export const MarketingHeader = React.forwardRef<HTMLElement, MarketingHeaderProp
             {/* デスクトップナビ */}
             {navItems && navItems.length > 0 && (
               <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-                {navItems.map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.href}
-                    className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-                  >
-                    {item.label}
-                  </a>
-                ))}
+                {navItems.map((item, i) =>
+                  item.children && item.children.length > 0 ? (
+                    <div key={i} className="group relative">
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+                      >
+                        {item.label}
+                        <svg className="h-3 w-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="2">
+                          <path d="M3 5l3 3 3-3" />
+                        </svg>
+                      </button>
+                      <div className="pointer-events-none absolute left-1/2 top-full z-50 min-w-48 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                        <div className="rounded-xl border border-neutral-200 bg-white p-2 shadow-lg dark:border-neutral-800 dark:bg-neutral-950">
+                          {item.children.map((child, j) => (
+                            <a
+                              key={j}
+                              href={child.href}
+                              className="block rounded-lg px-3 py-2 text-sm text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white"
+                            >
+                              {child.label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <a
+                      key={i}
+                      href={item.href}
+                      className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  ),
+                )}
               </nav>
             )}
 

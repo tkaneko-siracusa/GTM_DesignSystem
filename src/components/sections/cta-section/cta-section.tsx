@@ -33,6 +33,9 @@ export interface CTASectionProps
   actions: CTAAction[];
   note?: string;
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  backgroundMesh?: boolean;
+  socialProof?: string;
+  logoStrip?: React.ReactNode;
 }
 
 export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
@@ -45,15 +48,27 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
       actions,
       note,
       background = 'dark',
+      backgroundMesh = false,
+      socialProof,
+      logoStrip,
       ...props
     },
     ref,
   ) => {
     const isDark = background === 'dark' || background === 'brand';
 
+    const meshElement = backgroundMesh && (
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          className="absolute inset-0 [background-image:radial-gradient(ellipse_at_30%_50%,rgba(27,164,145,0.2),transparent_60%),radial-gradient(ellipse_at_70%_30%,rgba(59,130,246,0.1),transparent_60%)]"
+        />
+      </div>
+    );
+
     if (layout === 'split') {
       return (
-        <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+        <Section ref={ref} background={background} spacing="lg" className={cn('relative overflow-hidden', className)} {...props}>
+          {meshElement}
           <Container>
             <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
               <div className="max-w-xl">
@@ -93,9 +108,10 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
         ref={ref}
         background={background}
         spacing="lg"
-        className={cn(ctaSectionVariants({ layout }), className)}
+        className={cn('relative overflow-hidden', ctaSectionVariants({ layout }), className)}
         {...props}
       >
+        {meshElement}
         <Container size="md">
           <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
             {title}
@@ -125,6 +141,14 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
             <Text size="caption" tone="muted" className={cn('mt-4', isDark && 'text-neutral-500')}>
               {note}
             </Text>
+          )}
+          {socialProof && (
+            <Text size="body-sm" tone="muted" className={cn('mt-6 font-medium', isDark && 'text-neutral-400')}>
+              {socialProof}
+            </Text>
+          )}
+          {logoStrip && (
+            <div className="mt-8">{logoStrip}</div>
           )}
         </Container>
       </Section>

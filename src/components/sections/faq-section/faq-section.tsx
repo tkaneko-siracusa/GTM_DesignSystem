@@ -55,8 +55,11 @@ const AccordionItem: React.FC<{ item: FAQItem; isDark: boolean; index: number }>
       <div
         ref={contentRef}
         id={`${id}-panel`}
-        className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
-        style={{ maxHeight: open ? contentRef.current?.scrollHeight : 0 }}
+        className="overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out"
+        style={{
+          maxHeight: open ? contentRef.current?.scrollHeight : 0,
+          opacity: open ? 1 : 0,
+        }}
         role="region"
         aria-labelledby={`${id}-trigger`}
       >

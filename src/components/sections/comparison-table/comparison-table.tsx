@@ -4,6 +4,7 @@ import { Section } from '@/components/primitives/section';
 import { Container } from '@/components/primitives/container';
 import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
+import { Check, Minus } from 'lucide-react';
 
 export interface ComparisonColumn {
   name: string;
@@ -26,9 +27,13 @@ export interface ComparisonTableProps extends Omit<React.HTMLAttributes<HTMLElem
 
 const CellValue: React.FC<{ value: string | boolean | React.ReactNode }> = ({ value }) => {
   if (typeof value === 'boolean') {
-    return (
-      <span className={value ? 'text-primary-500' : 'text-neutral-400'}>
-        {value ? '✓' : '—'}
+    return value ? (
+      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+        <Check className="h-3.5 w-3.5" />
+      </span>
+    ) : (
+      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500">
+        <Minus className="h-3.5 w-3.5" />
       </span>
     );
   }
@@ -68,8 +73,8 @@ export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProp
 
           <div className="overflow-x-auto">
             <table className="w-full border-collapse" role="table">
-              <thead>
-                <tr>
+              <thead className="sticky top-0 z-10">
+                <tr className={isDark ? 'bg-neutral-950' : 'bg-white'}>
                   <th className="p-4 text-left"><span className="sr-only">Feature</span></th>
                   {columns.map((col, i) => (
                     <th
@@ -99,7 +104,7 @@ export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProp
                       isDark ? 'border-neutral-800' : 'border-neutral-200',
                     )}
                   >
-                    <td className="p-4">
+                    <td className="sticky left-0 z-5 p-4" style={{ backgroundColor: 'inherit' }}>
                       <Text as="span" size="body-sm" tone={isDark ? 'inherit' : 'default'} className={isDark ? 'text-neutral-200' : ''}>
                         {row.feature}
                       </Text>

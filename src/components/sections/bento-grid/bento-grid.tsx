@@ -12,6 +12,7 @@ export interface BentoItem {
   content?: React.ReactNode;
   span?: 1 | 2;
   rowSpan?: 1 | 2;
+  variant?: 'default' | 'featured' | 'dark';
 }
 
 export interface BentoGridProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
@@ -68,10 +69,14 @@ export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
               <div
                 key={i}
                 className={cn(
-                  'flex flex-col overflow-hidden rounded-2xl border p-6',
-                  isDark
-                    ? 'border-neutral-800 bg-neutral-900'
-                    : 'border-neutral-200 bg-white',
+                  'flex flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary-500/30 hover:shadow-xl',
+                  item.variant === 'featured'
+                    ? 'border-primary-500/20 bg-gradient-to-br from-primary-50 to-white shadow-glow-primary dark:from-primary-950/20 dark:to-neutral-900'
+                    : item.variant === 'dark'
+                      ? 'border-neutral-800 bg-neutral-950 text-white'
+                      : isDark
+                        ? 'border-neutral-800 bg-neutral-900'
+                        : 'border-neutral-200 bg-white',
                   spanClasses[item.span ?? 1],
                   rowSpanClasses[item.rowSpan ?? 1],
                 )}
