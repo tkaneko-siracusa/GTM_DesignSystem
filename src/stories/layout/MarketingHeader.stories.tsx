@@ -14,6 +14,56 @@ export default meta;
 
 type Story = StoryObj<typeof MarketingHeader>;
 
+export const WithDropdown: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <div>
+        <MarketingHeader
+          navItems={[
+            {
+              label: isJa ? 'プロダクト' : 'Products',
+              href: '/products',
+              children: [
+                { label: 'PolaAuth', href: '/products/auth' },
+                { label: 'PolaStore', href: '/products/store' },
+                { label: 'PolaGate', href: '/products/gate' },
+                { label: 'PolaFind', href: '/products/find' },
+              ],
+            },
+            {
+              label: isJa ? 'ソリューション' : 'Solutions',
+              href: '/solutions',
+              children: [
+                { label: isJa ? 'スタートアップ' : 'Startups', href: '/solutions/startups' },
+                { label: isJa ? 'エンタープライズ' : 'Enterprise', href: '/solutions/enterprise' },
+              ],
+            },
+            { label: isJa ? '料金' : 'Pricing', href: '/pricing' },
+            { label: isJa ? 'ドキュメント' : 'Docs', href: '/docs' },
+          ]}
+          actions={[
+            { label: isJa ? 'ログイン' : 'Log in', href: '/login', variant: 'ghost' },
+            { label: isJa ? '無料で始める' : 'Start Free', href: '/signup', variant: 'primary' },
+          ]}
+        />
+        <Section background="muted" spacing="xl">
+          <Container>
+            <Heading as="h1" size="display-lg">
+              {isJa ? 'ドロップダウンナビ付きヘッダー' : 'Header with Dropdown Nav'}
+            </Heading>
+            <Text tone="secondary" className="mt-4">
+              {isJa
+                ? '「プロダクト」「ソリューション」にホバーするとドロップダウンが表示されます。'
+                : 'Hover over "Products" or "Solutions" to see the dropdown menu.'}
+            </Text>
+          </Container>
+        </Section>
+      </div>
+    );
+  },
+};
+
 export const Default: Story = {
   render: (_, { globals }) => {
     const isJa = globals.locale === 'ja';
