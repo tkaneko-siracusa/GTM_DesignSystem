@@ -4,7 +4,7 @@ import { Section } from '@/components/primitives/section';
 import { Container } from '@/components/primitives/container';
 import { Heading } from '@/components/primitives/heading';
 import { Text } from '@/components/primitives/text';
-import { codeToHtml } from 'shiki';
+// shiki はオプショナル peerDependency — 動的importでバンドルサイズ増加を防止
 
 export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
@@ -44,12 +44,14 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
     const isDark = background === 'dark' || background === 'brand';
 
     React.useEffect(() => {
-      codeToHtml(code, {
-        lang: language,
-        theme: 'github-dark',
-      }).then(setHighlightedHtml).catch(() => {
-        // フォールバック: ハイライトなし
-      });
+      import('shiki')
+        .then(({ codeToHtml }) =>
+          codeToHtml(code, { lang: language, theme: 'github-dark' }),
+        )
+        .then(setHighlightedHtml)
+        .catch(() => {
+          // shiki未インストール or 言語未対応時はフォールバック
+        });
     }, [code, language]);
 
     const handleCopy = () => {
