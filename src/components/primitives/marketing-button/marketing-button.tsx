@@ -8,13 +8,13 @@ export const marketingButtonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 hover:shadow-glow-primary hover:-translate-y-0.5 active:translate-y-0',
+          'bg-primary-500 !text-white hover:bg-primary-600 active:bg-primary-700 hover:shadow-glow-primary hover:-translate-y-0.5 active:translate-y-0',
         secondary:
-          'border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-sunken)] hover:border-primary-300 hover:-translate-y-0.5 active:translate-y-0',
+          'border border-[var(--color-border)] bg-[var(--color-surface)] text-neutral-700 dark:text-neutral-300 hover:bg-[var(--color-surface-sunken)] hover:border-primary-300 hover:-translate-y-0.5 active:translate-y-0',
         ghost:
-          'text-[var(--color-on-surface)] hover:bg-[var(--color-surface-muted)]',
+          'text-[var(--color-on-surface)] hover:bg-neutral-100 hover:text-primary-600 dark:hover:bg-neutral-800 dark:hover:text-primary-400',
         gradient:
-          'bg-gradient-to-r from-primary-500 to-primary-400 text-white hover:from-primary-600 hover:to-primary-500 hover:shadow-glow-primary bg-[length:200%_100%] hover:bg-[position:right] hover:-translate-y-0.5 active:translate-y-0',
+          'bg-gradient-to-r from-primary-500 to-primary-400 !text-white hover:from-primary-600 hover:to-primary-500 hover:shadow-glow-primary bg-[length:200%_100%] hover:bg-[position:right] hover:-translate-y-0.5 active:translate-y-0',
       },
       size: {
         sm: 'h-9 px-4 text-body-sm',
