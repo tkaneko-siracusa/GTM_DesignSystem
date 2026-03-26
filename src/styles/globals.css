@@ -295,7 +295,7 @@
     line-height: var(--text-body-md--line-height);
     color: var(--color-on-surface);
     background-color: var(--color-surface);
-    font-feature-settings: 'cv01', 'cv03', 'cv04';
+    font-feature-settings: 'cv01', 'cv03', 'cv04', 'tnum';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
