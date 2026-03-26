@@ -74,13 +74,13 @@ export const AllLayouts: Story = {
           columns={[
             { title: isJa ? '高速' : 'Fast', description: isJa ? '<50msレスポンス' : 'Sub-50ms response' },
             { title: isJa ? '安全' : 'Secure', description: isJa ? 'エンタープライズセキュリティ' : 'Enterprise security' },
-            { title: isJa ? '統合' : 'Integrated', description: isJa ? '8モジュール一体型' : '8 modules unified' },
+            { title: isJa ? '統合' : 'Integrated', description: isJa ? '11モジュール一体型' : '11 modules unified' },
           ]}
         />
 
         <PStatSlide
           title={isJa ? '9. StatSlide — 数値' : '9. StatSlide'}
-          stats={[{ value: '70%', label: isJa ? '時間短縮' : 'Time saved' }, { value: '8', label: isJa ? 'モジュール' : 'Modules' }, { value: '99.9%', label: 'SLA' }]}
+          stats={[{ value: '70%', label: isJa ? '時間短縮' : 'Time saved' }, { value: '11', label: isJa ? 'モジュール' : 'Modules' }, { value: '99.9%', label: 'SLA' }]}
         />
 
         <PFlowSlide

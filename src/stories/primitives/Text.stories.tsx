@@ -14,7 +14,7 @@ export const SizesAndTones: Story = {
   render: (_, { globals }) => {
     const isJa = globals.locale === 'ja';
     const bodyText = isJa
-      ? '8モジュール統合のEnterprise Agent Stackで、エンタープライズグレードの業務アプリを高速に構築。'
+      ? 'AIエージェントにAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる。'
       : 'Build enterprise-grade business applications rapidly with an 8-module integrated Enterprise Agent Stack.';
 
     return (

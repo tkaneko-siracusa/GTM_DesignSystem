@@ -83,7 +83,7 @@ export const PolastackPitchDeck: Story = {
           title={isJa ? '導入実績' : 'By the numbers'}
           stats={[
             { value: '70%', label: isJa ? '開発時間短縮' : 'Dev time saved' },
-            { value: '8', label: isJa ? '統合モジュール' : 'Modules' },
+            { value: '11', label: isJa ? '統合モジュール' : 'Modules' },
             { value: '99.9%', label: 'SLA' },
             { value: '<50ms', label: isJa ? '検索レスポンス' : 'Search response' },
           ]}
@@ -125,7 +125,7 @@ export const PolastackPitchDeck: Story = {
 
         <PEndSlide
           title={isJa ? 'まずは無料で始めましょう' : "Let's get started"}
-          subtitle={isJa ? 'クレジットカード不要。全8モジュールを今すぐ試せます。' : 'No credit card required. Try all 8 modules instantly.'}
+          subtitle={isJa ? 'クレジットカード不要。全11モジュールを今すぐ試せます。' : 'No credit card required. Try all 11 modules instantly.'}
           ctaLabel={isJa ? '無料トライアル開始' : 'Start Free Trial'}
           contactItems={[
             { label: 'Email', value: 'sales@polastack.io' },
