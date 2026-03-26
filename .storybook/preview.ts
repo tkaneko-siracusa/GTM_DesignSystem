@@ -66,6 +66,9 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      source: { type: 'code' },
+    },
     layout: 'fullscreen',
     backgrounds: {
       disable: true,

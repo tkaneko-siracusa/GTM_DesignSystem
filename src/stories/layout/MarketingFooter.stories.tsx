@@ -4,7 +4,10 @@ import { MarketingFooter } from '../../components/layout/marketing-footer';
 const meta: Meta<typeof MarketingFooter> = {
   title: 'Layout/MarketingFooter',
   component: MarketingFooter,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: { source: { type: 'code' } },
+  },
 };
 export default meta;
 
