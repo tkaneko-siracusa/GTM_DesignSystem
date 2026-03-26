@@ -22,9 +22,7 @@ export const Logo = React.forwardRef<SVGSVGElement, LogoProps>(
     const textColor =
       colorScheme === 'reverse'
         ? '#ffffff'
-        : colorScheme === 'mono'
-          ? 'currentColor'
-          : '#18181b';
+        : 'currentColor';
 
     const markColor = colorScheme === 'mono' ? 'currentColor' : brandColor;
 
