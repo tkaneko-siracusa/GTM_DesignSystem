@@ -281,6 +281,14 @@
     border-color: var(--color-border);
   }
 
+  a,
+  button,
+  [role="button"],
+  summary,
+  [tabindex]:not([tabindex="-1"]) {
+    cursor: pointer;
+  }
+
   body {
     font-family: var(--font-sans);
     font-size: var(--text-body-md);
