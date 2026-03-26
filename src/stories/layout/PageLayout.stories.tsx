@@ -64,7 +64,7 @@ export const FullPage: Story = {
           }
           subtitle={
             isJa
-              ? '8モジュール統合のEnterprise Agent Stackで、エンタープライズグレードの業務アプリを高速に構築。'
+              ? 'AIエージェントにAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる。'
               : 'Build enterprise-grade business apps rapidly with 8 integrated modules.'
           }
           actions={[
@@ -75,7 +75,7 @@ export const FullPage: Story = {
 
         <FeatureGrid
           eyebrow={isJa ? 'モジュール' : 'MODULES'}
-          title={isJa ? '8つの統合モジュール' : '8 Integrated Modules'}
+          title={isJa ? '11の統合モジュール' : '11 Integrated Modules'}
           features={[
             { title: 'PolaAuth', description: isJa ? '認証・アイデンティティ基盤' : 'Authentication & identity' },
             { title: 'PolaStore', description: isJa ? 'メタデータ駆動DB' : 'Metadata-driven DB' },

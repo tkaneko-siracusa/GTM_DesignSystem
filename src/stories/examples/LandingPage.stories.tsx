@@ -88,7 +88,7 @@ export const TopPage: Story = {
           }
           subtitle={
             isJa
-              ? '8モジュール統合のEnterprise Agent Stackで、エンタープライズグレードの業務アプリを高速に構築。'
+              ? 'AIエージェントにAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる。'
               : 'Build enterprise-grade business apps rapidly with 8 integrated modules.'
           }
           actions={[
@@ -120,7 +120,7 @@ export const TopPage: Story = {
         {/* Feature Grid */}
         <FeatureGrid
           eyebrow={isJa ? 'モジュール' : 'MODULES'}
-          title={isJa ? '8つの統合モジュール' : '8 Integrated Modules'}
+          title={isJa ? '11の統合モジュール' : '11 Integrated Modules'}
           subtitle={
             isJa
               ? 'エンタープライズ要件を網羅したヘッドレス・バックエンド群。'
@@ -233,7 +233,7 @@ export const TopPage: Story = {
           items={
             isJa
               ? [
-                  { question: 'Polastackとは何ですか？', answer: 'エンタープライズ要件を網羅した8つのヘッドレス・バックエンドモジュールを統合したEnterprise Agent Stackです。' },
+                  { question: 'Polastackとは何ですか？', answer: 'AIエージェントにAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる業務アプリ開発プラットフォームです。11の統合モジュールで構成されています。' },
                   { question: 'Free Planから有料プランへの移行時にデータは引き継がれますか？', answer: 'はい。Free Planのデータと設定は有料プランに完全に引き継がれます。' },
                   { question: 'フロントエンド技術スタックを変更する必要はありますか？', answer: 'いいえ。ヘッドレスアーキテクチャなので、React / Next.js / Vue等で開発できます。' },
                 ]
@@ -249,7 +249,7 @@ export const TopPage: Story = {
         <CTASection
           background="dark"
           title={isJa ? '無料で開発を始める' : 'Start building for free'}
-          subtitle={isJa ? 'クレジットカード不要。全8モジュールを今すぐ試せます。' : 'No credit card required. Try all 8 modules instantly.'}
+          subtitle={isJa ? 'クレジットカード不要。全11モジュールを今すぐ試せます。' : 'No credit card required. Try all 11 modules instantly.'}
           actions={[
             { label: isJa ? '無料で始める' : 'Get Started Free', href: '/signup', variant: 'gradient' },
             { label: isJa ? 'デモを予約' : 'Book a Demo', href: '/demo', variant: 'secondary' },

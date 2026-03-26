@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { PricingTable } from '../../components/sections/pricing';
 
-
 const meta: Meta<typeof PricingTable> = {
   title: 'Sections/PricingTable',
   component: PricingTable,
@@ -20,23 +19,23 @@ export const FourPlans: Story = {
         title={isJa ? 'シンプルで透明な料金体系' : 'Simple, transparent pricing'}
         subtitle={
           isJa
-            ? 'すべてのプランで全8モジュールが利用可能。規模に合わせてスケール。'
-            : 'All 8 modules available on every plan. Scale as you grow.'
+            ? 'すべてのプランで全11モジュールが利用可能。規模に合わせてスケール。'
+            : 'All 11 modules available on every plan. Scale as you grow.'
         }
         plans={[
           {
-            name: 'Free',
-            description: isJa ? '開発・評価用途' : 'Development & evaluation',
+            name: 'Sandbox',
+            description: isJa ? '技術検証・学習専用' : 'Technical evaluation & learning',
             price: (
               <span className="text-display-sm font-bold tracking-tight md:text-display-md">
                 ¥0
               </span>
             ),
-            priceNote: isJa ? '開発環境のみ' : 'Dev environment only',
+            priceNote: isJa ? '本番運用不可' : 'Not for production use',
             features: [
-              { text: isJa ? '全8モジュール利用可能' : 'All 8 modules', included: true },
-              { text: isJa ? '3ユーザーまで' : 'Up to 3 users', included: true },
-              { text: isJa ? '1テナント（開発用）' : '1 tenant (dev)', included: true },
+              { text: isJa ? '全11モジュール利用可能' : 'All 11 modules', included: true },
+              { text: isJa ? '1ユーザー' : '1 user', included: true },
+              { text: isJa ? 'リソース制限あり' : 'Resource limits apply', included: true },
               { text: isJa ? 'コミュニティサポート' : 'Community support', included: true },
               { text: isJa ? '本番環境' : 'Production environment', included: false },
               { text: isJa ? 'SSO/SAML' : 'SSO/SAML', included: false },
@@ -48,70 +47,70 @@ export const FourPlans: Story = {
             },
           },
           {
-            name: 'Platform',
-            description: isJa ? '開発会社向け（受託・ISV・OEM）' : 'For dev agencies (contract, ISV, OEM)',
+            name: 'Growth',
+            description: isJa ? '全利用者向け統一プラン' : 'Unified plan for all users',
+            badge: isJa ? 'おすすめ' : 'Recommended',
+            highlighted: true,
             price: (
               <span className="text-display-sm font-bold tracking-tight md:text-display-md">
                 ¥30,000
                 <span className="text-body-md font-normal text-neutral-500">{isJa ? '/月' : '/mo'}</span>
               </span>
             ),
-            priceNote: isJa ? '税別・1テナント + 2アプリ含む' : 'excl. tax, includes 1 tenant + 2 apps',
+            priceNote: isJa ? '税別・ユーザー枠¥10,000分 + アプリ枠¥20,000分含む' : 'excl. tax, includes ¥10K user + ¥20K app credits',
             features: [
-              { text: isJa ? '全8モジュール統合' : 'All 8 modules integrated', included: true },
+              { text: isJa ? '全11モジュール統合' : 'All 11 modules integrated', included: true },
               { text: isJa ? 'メール + チャットサポート' : 'Email + chat support', included: true },
-              { text: isJa ? 'SLO 99.9%' : 'SLO 99.9%', included: true },
-              { text: isJa ? '監査ログ1年保持' : 'Audit logs 1-year retention', included: true },
+              { text: isJa ? 'ストレージ 30GB 含む' : '30GB storage included', included: true },
+              { text: isJa ? 'APIリクエスト 130万回/月' : '1.3M API requests/mo', included: true },
               { text: isJa ? 'マルチテナント対応' : 'Multi-tenant support', included: true },
-              { text: isJa ? 'SSO/SAML（オプション）' : 'SSO/SAML (optional)', included: true },
+              { text: isJa ? 'SSO/SAML（¥50,000/接続/月）' : 'SSO/SAML (¥50,000/connection/mo)', included: true },
             ],
             action: {
               label: isJa ? '申し込む' : 'Get Started',
-              href: '/signup/platform',
-              variant: 'secondary',
+              href: '/signup/growth',
+              variant: 'primary',
             },
           },
           {
-            name: 'Corporate',
-            description: isJa ? '企業自社利用向け' : 'For enterprise internal use',
-            badge: isJa ? 'おすすめ' : 'Recommended',
-            highlighted: true,
+            name: 'Partner',
+            description: isJa ? 'ISV/受託開発会社向け（承認制）' : 'For ISVs & dev agencies (approval required)',
             price: (
               <span className="text-display-sm font-bold tracking-tight md:text-display-md">
                 ¥50,000
                 <span className="text-body-md font-normal text-neutral-500">{isJa ? '/月' : '/mo'}</span>
               </span>
             ),
-            priceNote: isJa ? '税別・10ライセンス含む' : 'excl. tax, includes 10 licenses',
+            priceNote: isJa ? '税別・Builder 3名 + End User 50名含む' : 'excl. tax, includes 3 Builders + 50 End Users',
             features: [
-              { text: isJa ? '全8モジュール統合' : 'All 8 modules integrated', included: true },
-              { text: isJa ? 'アプリ登録数無制限' : 'Unlimited app registrations', included: true },
-              { text: isJa ? 'SLA 99.9%' : 'SLA 99.9%', included: true },
-              { text: isJa ? '監査ログ1年保持' : 'Audit logs 1-year retention', included: true },
-              { text: isJa ? '追加ライセンス ¥1,000/月' : 'Additional license ¥1,000/mo', included: true },
-              { text: isJa ? 'SSO/SAML（オプション）' : 'SSO/SAML (optional)', included: true },
+              { text: isJa ? '全11モジュール統合' : 'All 11 modules integrated', included: true },
+              { text: isJa ? '顧客テナント作成可能' : 'Create customer tenants', included: true },
+              { text: isJa ? 'End User課金（¥300/人〜）' : 'End User billing (¥300/user~)', included: true },
+              { text: isJa ? 'ティア昇格で割引' : 'Tier upgrades for discounts', included: true },
+              { text: isJa ? 'テクニカルサポート優先' : 'Priority technical support', included: true },
+              { text: isJa ? 'パートナーロゴ使用権' : 'Partner logo usage rights', included: true },
             ],
             action: {
-              label: isJa ? '申し込む' : 'Get Started',
-              href: '/signup/corporate',
-              variant: 'primary',
+              label: isJa ? 'パートナー申請' : 'Apply for Partner',
+              href: '/partner',
+              variant: 'secondary',
             },
           },
           {
-            name: 'Enterprise',
-            description: isJa ? '大規模企業向け' : 'For large enterprises',
+            name: 'Self-Hosted',
+            description: isJa ? '顧客インフラにデプロイ' : 'Deploy to your infrastructure',
             price: (
               <span className="text-display-sm font-bold tracking-tight md:text-display-md">
                 {isJa ? 'カスタム' : 'Custom'}
               </span>
             ),
-            priceNote: isJa ? '300ユーザー超・年間¥500万超' : '300+ users, ¥5M+/year',
+            priceNote: isJa ? 'データ主権・コンプライアンス要件向け' : 'For data sovereignty & compliance',
             features: [
-              { text: isJa ? '全8モジュール統合' : 'All 8 modules integrated', included: true },
-              { text: isJa ? 'SLA 99.95%' : 'SLA 99.95%', included: true },
+              { text: isJa ? '全11モジュール統合' : 'All 11 modules integrated', included: true },
+              { text: isJa ? 'SLA保証' : 'SLA guaranteed', included: true },
               { text: isJa ? 'SSO/SCIM 込み' : 'SSO/SCIM included', included: true },
-              { text: isJa ? '専任CSM' : 'Dedicated CSM', included: true },
-              { text: isJa ? '物理テナント分離' : 'Physical tenant isolation', included: true },
+              { text: isJa ? 'CTO直接Slackチャネル' : 'Direct CTO Slack channel', included: true },
+              { text: isJa ? 'オンプレミス/VPC配置' : 'On-premise / VPC deployment', included: true },
               { text: isJa ? '請求書払い対応' : 'Invoice billing', included: true },
             ],
             action: {

@@ -20,8 +20,8 @@ export const CenteredDark: Story = {
         title={isJa ? '無料で開発を始める' : 'Start building for free'}
         subtitle={
           isJa
-            ? 'クレジットカード不要。全8モジュールを今すぐ試せます。'
-            : 'No credit card required. Try all 8 modules instantly.'
+            ? 'クレジットカード不要。全11モジュールを今すぐ試せます。'
+            : 'No credit card required. Try all 11 modules instantly.'
         }
         actions={[
           {
@@ -74,8 +74,8 @@ export const WithMeshAndSocialProof: Story = {
         title={isJa ? '無料で開発を始める' : 'Start building for free'}
         subtitle={
           isJa
-            ? 'クレジットカード不要。全8モジュールを今すぐ試せます。'
-            : 'No credit card required. Try all 8 modules instantly.'
+            ? 'クレジットカード不要。全11モジュールを今すぐ試せます。'
+            : 'No credit card required. Try all 11 modules instantly.'
         }
         actions={[
           { label: isJa ? '無料で始める' : 'Get Started Free', href: '/signup', variant: 'gradient' },

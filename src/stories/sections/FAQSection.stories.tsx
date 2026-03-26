@@ -14,7 +14,7 @@ const faqItemsJa = [
   {
     question: 'Polastackとは何ですか？',
     answer:
-      'Polastackは、エンタープライズ要件を網羅した8つのヘッドレス・バックエンドモジュール（認証・DB・ゲートウェイ・検索・分析・連携・監視・ホスティング）を統合したEnterprise Agent Stackです。AIコーディングで作成したフロントエンドに、エンタープライズグレードのバックエンドを直結できます。',
+      'Polastackは、エンタープライズ要件を網羅したAIエージェント（Claude Code、Cursor等）にAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる業務アプリ開発プラットフォームです。11の統合モジュール（認証・DB・ゲートウェイ・検索・分析・連携・監視・ホスティング・DX・CaC・課金）で構成されています。',
   },
   {
     question: 'kintoneからの乗り換えは可能ですか？',
@@ -24,12 +24,12 @@ const faqItemsJa = [
   {
     question: 'Supabaseとの違いは何ですか？',
     answer:
-      'Polastackは8モジュール統合で、SSO・FLS・監査ログ・分析基盤・全文検索が標準に含まれます。Supabaseはこれらを個別に組み合わせる必要があり、統合コストが発生します。',
+      'Polastackは11モジュール統合で、SSO・FLS・監査ログ・分析基盤・全文検索・課金が標準に含まれます。Supabaseはこれらを個別に組み合わせる必要があり、統合コストが発生します。',
   },
   {
-    question: 'Free Planから有料プランへの移行時にデータは引き継がれますか？',
+    question: 'SandboxからGrowthプランへの移行時にデータは引き継がれますか？',
     answer:
-      'はい。Free Planのデータと設定は有料プランに完全に引き継がれます。環境変更の工数はほぼゼロです。',
+      'はい。Sandboxのデータと設定はGrowthプランに完全に引き継がれます。環境変更の工数はほぼゼロです。',
   },
   {
     question: 'フロントエンド技術スタックを変更する必要はありますか？',
@@ -47,7 +47,7 @@ const faqItemsEn = [
   {
     question: 'What is Polastack?',
     answer:
-      'Polastack is an Enterprise Agent Stack that integrates 8 headless backend modules (auth, DB, gateway, search, analytics, integrations, monitoring, hosting) covering all enterprise requirements. Connect enterprise-grade backends directly to AI-coded frontends.',
+      'Polastack is an Enterprise Agent Stack — just pass API specs to an AI agent (Claude Code, Cursor, etc.) and enterprise-grade search, analytics, and auth infrastructure spins up instantly. It integrates 11 modules: auth, DB, gateway, search, analytics, integrations, monitoring, hosting, DX, CaC, and billing.',
   },
   {
     question: 'Can I migrate from kintone?',
@@ -57,12 +57,12 @@ const faqItemsEn = [
   {
     question: 'How is Polastack different from Supabase?',
     answer:
-      'Polastack includes SSO, FLS, audit logs, analytics, and full-text search as integrated features across 8 modules. With Supabase, these must be assembled individually, incurring integration costs.',
+      'Polastack includes SSO, FLS, audit logs, analytics, full-text search, and billing as integrated features across 11 modules. With Supabase, these must be assembled individually, incurring integration costs.',
   },
   {
-    question: 'Is data preserved when upgrading from Free to a paid plan?',
+    question: 'Is data preserved when upgrading from Sandbox to Growth?',
     answer:
-      'Yes. All Free Plan data and configurations are fully preserved when upgrading. Migration effort is virtually zero.',
+      'Yes. All Sandbox data and configurations are fully preserved when upgrading to Growth. Migration effort is virtually zero.',
   },
   {
     question: 'Do I need to change my frontend tech stack?',

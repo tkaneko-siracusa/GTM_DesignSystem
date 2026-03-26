@@ -33,7 +33,7 @@ export const Default: Story = {
                   company: '人材サービス株式会社',
                 },
                 {
-                  quote: '8モジュール統合で、これまで個別に組み合わせていたSaaSの連携コストがゼロになった。',
+                  quote: '11モジュール統合で、これまで個別に組み合わせていたSaaSの連携コストがゼロになった。',
                   author: '高橋健太',
                   role: 'VPoE',
                   company: 'エンタープライズSaaS株式会社',
@@ -53,7 +53,7 @@ export const Default: Story = {
                   company: 'HR Services Inc.',
                 },
                 {
-                  quote: '8 integrated modules eliminated the integration costs of combining separate SaaS tools.',
+                  quote: '11 integrated modules eliminated the integration costs of combining separate SaaS tools.',
                   author: 'Kenta Takahashi',
                   role: 'VPoE',
                   company: 'Enterprise SaaS Inc.',
@@ -90,7 +90,7 @@ export const WithRatings: Story = {
                   rating: 5,
                 },
                 {
-                  quote: '8モジュール統合で、これまで個別に組み合わせていたSaaSの連携コストがゼロになった。',
+                  quote: '11モジュール統合で、これまで個別に組み合わせていたSaaSの連携コストがゼロになった。',
                   author: '高橋健太',
                   role: 'VPoE',
                   company: 'エンタープライズSaaS株式会社',
@@ -113,7 +113,7 @@ export const WithRatings: Story = {
                   rating: 5,
                 },
                 {
-                  quote: '8 integrated modules eliminated the integration costs of combining separate SaaS tools.',
+                  quote: '11 integrated modules eliminated the integration costs of combining separate SaaS tools.',
                   author: 'Kenta Takahashi',
                   role: 'VPoE',
                   company: 'Enterprise SaaS Inc.',

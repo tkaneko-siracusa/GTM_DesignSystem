@@ -23,23 +23,23 @@ export const Centered: Story = {
           <Heading as="h1" size="display-2xl">
             {isJa ? (
               <>
-                Agent Coding時代の、
+                AIがコードを書く時代。
                 <br />
-                <GradientText as="span">消えない複雑性を解決する。</GradientText>
+                <GradientText as="span">業務に耐える裏側は、Polastackが引き受ける。</GradientText>
               </>
             ) : (
               <>
-                Solve the unsolvable complexity
+                In the age of AI-generated code,
                 <br />
-                <GradientText as="span">of the Agent Coding era.</GradientText>
+                <GradientText as="span">Polastack handles the enterprise backend.</GradientText>
               </>
             )}
           </Heading>
         }
         subtitle={
           isJa
-            ? '8モジュール統合のEnterprise Agent Stackで、エンタープライズグレードの業務アプリを高速に構築。'
-            : 'Build enterprise-grade business applications rapidly with an 8-module integrated Enterprise Agent Stack.'
+            ? 'AIエージェントにAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる。'
+            : 'Just pass API specs to an AI agent, and enterprise-grade search, analytics, and auth infrastructure spins up instantly.'
         }
         actions={[
           { label: isJa ? '無料で開発を始める' : 'Start Free', href: '/signup' },
@@ -91,23 +91,23 @@ export const WithGridPattern: Story = {
           <Heading as="h1" size="display-2xl" className="text-white">
             {isJa ? (
               <>
-                Agent Coding時代の、
+                AIがコードを書く時代。
                 <br />
-                <GradientText as="span">消えない複雑性を解決する。</GradientText>
+                <GradientText as="span">業務に耐える裏側は、Polastackが引き受ける。</GradientText>
               </>
             ) : (
               <>
-                Solve the unsolvable complexity
+                In the age of AI-generated code,
                 <br />
-                <GradientText as="span">of the Agent Coding era.</GradientText>
+                <GradientText as="span">Polastack handles the enterprise backend.</GradientText>
               </>
             )}
           </Heading>
         }
         subtitle={
           isJa
-            ? '8モジュール統合のEnterprise Agent Stackで、エンタープライズグレードの業務アプリを高速に構築。'
-            : 'Build enterprise-grade business applications rapidly with an 8-module integrated Enterprise Agent Stack.'
+            ? 'AIエージェントにAPI仕様を渡すだけで、エンタープライズ品質の検索・分析・認証基盤が即座に立ち上がる。'
+            : 'Just pass API specs to an AI agent, and enterprise-grade search, analytics, and auth infrastructure spins up instantly.'
         }
         actions={[
           { label: isJa ? '無料で開発を始める' : 'Start Free', href: '/signup', variant: 'gradient' },
@@ -177,23 +177,23 @@ export const DarkBackground: Story = {
           <Heading as="h1" size="display-2xl" className="text-white">
             {isJa ? (
               <>
-                開発時間の60-70%は
+                AIがコードを書いても、
                 <br />
-                <GradientText as="span">非機能要件に消えている。</GradientText>
+                <GradientText as="span">業務に耐えるバックエンドは残り続ける。</GradientText>
               </>
             ) : (
               <>
-                60-70% of development time
+                Even when AI writes code,
                 <br />
-                <GradientText as="span">is lost to non-functional requirements.</GradientText>
+                <GradientText as="span">enterprise backends remain the hard part.</GradientText>
               </>
             )}
           </Heading>
         }
         subtitle={
           isJa
-            ? 'Polastackは、この「消えない複雑性」を8つのモジュールで統合的に解決します。'
-            : 'Polastack solves this "unsolvable complexity" comprehensively with 8 integrated modules.'
+            ? 'Polastackは11の統合モジュールで、セキュリティ・データ基盤・運用のすべてを引き受けます。'
+            : 'Polastack handles security, data infrastructure, and operations with 11 integrated modules.'
         }
         actions={[
           { label: isJa ? '無料で開発を始める' : 'Start Free', href: '/signup', variant: 'gradient' },
