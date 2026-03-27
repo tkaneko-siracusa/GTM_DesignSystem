@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Storybook プレビュー用のスライドコンテンツコンポーネント
  * Spectacle に依存せず、純粋な React + インラインスタイルで描画
