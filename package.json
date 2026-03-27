@@ -28,7 +28,8 @@
       "import": "./dist/slides.js",
       "types": "./dist/slides.d.ts"
     },
-    "./globals.css": "./src/styles/globals.css"
+    "./globals.css": "./src/styles/globals.css",
+    "./theme.css": "./src/styles/theme.css"
   },
   "files": [
     "dist",
