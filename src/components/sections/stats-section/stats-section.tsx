@@ -43,15 +43,15 @@ export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -70,7 +70,7 @@ export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
                 <div
                   className={cn(
                     'text-display-sm font-extrabold tracking-tight md:text-display-md',
-                    isDark ? 'text-white' : 'text-primary-500',
+                    'text-primary-500 dark:text-white',
                   )}
                 >
                   {animated && stat.numericValue != null ? (
@@ -86,13 +86,13 @@ export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
                 <Text
                   as="div"
                   size="body-md"
-                  tone={isDark ? 'inherit' : 'default'}
-                  className={cn('mt-2 font-semibold', isDark && 'text-white')}
+                  tone="default"
+                  className={cn('mt-2 font-semibold', 'dark:text-white')}
                 >
                   {stat.label}
                 </Text>
                 {stat.description && (
-                  <Text size="body-sm" tone={isDark ? 'inherit' : 'muted'} className={cn('mt-1', isDark && 'text-neutral-400')}>
+                  <Text size="body-sm" tone="muted" className={cn('mt-1', 'dark:text-neutral-400')}>
                     {stat.description}
                   </Text>
                 )}

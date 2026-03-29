@@ -48,15 +48,15 @@ export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>

@@ -38,15 +38,15 @@ export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProp
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -71,13 +71,13 @@ export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProp
                         <Badge variant="default">{item.badge}</Badge>
                       </div>
                     )}
-                    <Heading as="h3" size="display-sm" className={isDark ? 'text-white' : ''}>
+                    <Heading as="h3" size="display-sm">
                       {item.title}
                     </Heading>
                     <Text
                       size="body-lg"
-                      tone={isDark ? 'inherit' : 'secondary'}
-                      className={cn('mt-4', isDark && 'text-neutral-300')}
+                      tone="secondary"
+                      className={cn('mt-4', 'dark:text-neutral-300')}
                     >
                       {item.description}
                     </Text>
@@ -88,7 +88,7 @@ export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProp
                             <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
                               <Check className="h-3 w-3" />
                             </span>
-                            <Text as="span" size="body-sm" tone={isDark ? 'inherit' : 'default'} className={isDark ? 'text-neutral-200' : ''}>
+                            <Text as="span" size="body-sm" tone="default" className={'dark:text-neutral-200'}>
                               {feat}
                             </Text>
                           </li>

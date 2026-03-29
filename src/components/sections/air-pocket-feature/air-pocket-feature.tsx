@@ -37,15 +37,15 @@ export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeaturePr
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -66,13 +66,13 @@ export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeaturePr
                   <Text size="overline" tone="brand" className="mb-3">
                     {pocket.module}
                   </Text>
-                  <Heading as="h3" size="display-sm" className={isDark ? 'text-white' : ''}>
+                  <Heading as="h3" size="display-sm">
                     {pocket.headline}
                   </Heading>
                   <Text
                     size="body-lg"
-                    tone={isDark ? 'inherit' : 'secondary'}
-                    className={cn('mt-4', isDark && 'text-neutral-300')}
+                    tone="secondary"
+                    className={cn('mt-4', 'dark:text-neutral-300')}
                   >
                     {pocket.description}
                   </Text>

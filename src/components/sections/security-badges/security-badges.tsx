@@ -35,15 +35,15 @@ export const SecurityBadges = React.forwardRef<HTMLElement, SecurityBadgesProps>
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="heading-lg" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="heading-lg">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-md"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-2 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-2 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -61,11 +61,11 @@ export const SecurityBadges = React.forwardRef<HTMLElement, SecurityBadgesProps>
               >
                 <div className={cn(
                   'flex h-14 w-14 items-center justify-center rounded-xl',
-                  isDark ? 'bg-neutral-800' : 'bg-white shadow-sm',
+                  'bg-white shadow-sm dark:bg-neutral-800 dark:shadow-none',
                 )}>
                   {badge.icon ?? <ShieldCheck className="h-7 w-7 text-primary-500" />}
                 </div>
-                <Text as="div" size="body-sm" tone={isDark ? 'inherit' : 'default'} className={cn('font-semibold', isDark && 'text-white')}>
+                <Text as="div" size="body-sm" tone="default" className={cn('font-semibold', 'dark:text-white')}>
                   {badge.name}
                 </Text>
                 {badge.description && (

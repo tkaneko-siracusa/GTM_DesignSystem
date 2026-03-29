@@ -20,19 +20,19 @@ export interface FAQSectionProps extends Omit<React.HTMLAttributes<HTMLElement>,
   background?: 'default' | 'muted' | 'dark' | 'brand';
 }
 
-const AccordionItem: React.FC<{ item: FAQItem; isDark: boolean; index: number }> = ({ item, isDark, index }) => {
+const AccordionItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) => {
   const [open, setOpen] = React.useState(false);
   const contentRef = React.useRef<HTMLDivElement>(null);
   const id = `faq-${index}`;
 
   return (
-    <div className={cn('border-b', isDark ? 'border-neutral-800' : 'border-neutral-200')}>
+    <div className="border-b border-neutral-200 dark:border-neutral-800">
       <button
         type="button"
         id={`${id}-trigger`}
         className={cn(
           'flex w-full items-center justify-between py-5 text-left transition-colors',
-          isDark ? 'text-white hover:text-primary-400' : 'text-neutral-900 hover:text-primary-500',
+          'text-neutral-900 hover:text-primary-500 dark:text-white dark:hover:text-primary-400',
         )}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -66,7 +66,7 @@ const AccordionItem: React.FC<{ item: FAQItem; isDark: boolean; index: number }>
         aria-labelledby={`${id}-trigger`}
       >
         <div className="pb-5">
-          <Text size="body-md" tone={isDark ? 'inherit' : 'secondary'} className={isDark ? 'text-neutral-300' : ''}>
+          <Text size="body-md" tone="secondary" className={'dark:text-neutral-300'}>
             {item.answer}
           </Text>
         </div>
@@ -90,15 +90,15 @@ export const FAQSection = React.forwardRef<HTMLElement, FAQSectionProps>(
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -108,7 +108,7 @@ export const FAQSection = React.forwardRef<HTMLElement, FAQSectionProps>(
 
           <div>
             {items.map((item, i) => (
-              <AccordionItem key={i} item={item} isDark={isDark} index={i} />
+              <AccordionItem key={i} item={item} index={i} />
             ))}
           </div>
         </Container>

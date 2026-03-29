@@ -33,7 +33,7 @@ export const LogoCloud = React.forwardRef<HTMLElement, LogoCloudProps>(
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="heading-lg" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="heading-lg">
                   {title}
                 </Heading>
               )}
@@ -50,7 +50,7 @@ export const LogoCloud = React.forwardRef<HTMLElement, LogoCloudProps>(
                     key={i}
                     className={cn(
                       'flex shrink-0 items-center justify-center opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0',
-                      isDark && 'invert',
+                      'dark:invert',
                     )}
                     aria-label={item.name}
                   >
@@ -66,7 +66,7 @@ export const LogoCloud = React.forwardRef<HTMLElement, LogoCloudProps>(
                   key={i}
                   className={cn(
                     'flex items-center justify-center opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0',
-                    isDark && 'invert',
+                    'dark:invert',
                   )}
                   aria-label={item.name}
                 >

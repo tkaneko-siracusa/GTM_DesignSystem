@@ -110,11 +110,11 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
           {subtitle && (
             <Text
               size="body-lg"
-              tone={isDark ? 'inherit' : 'secondary'}
+              tone="secondary"
               className={cn(
                 'max-w-2xl',
                 (layout === 'centered' || layout === 'with-demo') && 'mx-auto',
-                isDark && 'text-neutral-300',
+                'dark:text-neutral-300',
               )}
             >
               {subtitle}
