@@ -115,15 +115,15 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
                   </Text>
                 )}
                 {title && (
-                  <Heading as="h2" size="display-sm" className={isDark ? 'text-white' : ''}>
+                  <Heading as="h2" size="display-sm">
                     {title}
                   </Heading>
                 )}
                 {subtitle && (
                   <Text
                     size="body-lg"
-                    tone={isDark ? 'inherit' : 'secondary'}
-                    className={cn('mt-4', isDark && 'text-neutral-300')}
+                    tone="secondary"
+                    className={cn('mt-4', 'dark:text-neutral-300')}
                   >
                     {subtitle}
                   </Text>
@@ -148,15 +148,15 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>

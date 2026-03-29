@@ -40,15 +40,15 @@ export const ModuleOverview = React.forwardRef<HTMLElement, ModuleOverviewProps>
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -62,7 +62,7 @@ export const ModuleOverview = React.forwardRef<HTMLElement, ModuleOverviewProps>
                 <Text
                   size="caption"
                   tone="muted"
-                  className={cn('mb-2 font-mono uppercase tracking-wider', isDark && 'text-neutral-500')}
+                  className={cn('mb-2 font-mono uppercase tracking-wider', 'dark:text-neutral-500')}
                 >
                   {layer.name}
                 </Text>
@@ -81,9 +81,7 @@ export const ModuleOverview = React.forwardRef<HTMLElement, ModuleOverviewProps>
                       key={j}
                       className={cn(
                         'group flex items-start gap-3 rounded-xl border p-4 transition-all hover:border-primary-500/50',
-                        isDark
-                          ? 'border-neutral-800 bg-neutral-900/50 hover:bg-neutral-900'
-                          : 'border-neutral-200 bg-white hover:shadow-md',
+                        'border-neutral-200 bg-white hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:bg-neutral-900 dark:hover:shadow-none',
                       )}
                     >
                       {mod.icon && (
@@ -105,7 +103,7 @@ export const ModuleOverview = React.forwardRef<HTMLElement, ModuleOverviewProps>
                             {mod.label}
                           </Text>
                         </div>
-                        <Text size="caption" tone={isDark ? 'inherit' : 'secondary'} className={cn('mt-1', isDark && 'text-neutral-400')}>
+                        <Text size="caption" tone="secondary" className={cn('mt-1', 'dark:text-neutral-400')}>
                           {mod.description}
                         </Text>
                       </div>

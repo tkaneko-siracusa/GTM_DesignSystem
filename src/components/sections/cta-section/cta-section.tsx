@@ -72,14 +72,14 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
           <Container>
             <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
               <div className="max-w-xl">
-                <Heading as="h2" size="display-sm" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-sm">
                   {title}
                 </Heading>
                 {subtitle && (
                   <Text
                     size="body-lg"
-                    tone={isDark ? 'inherit' : 'secondary'}
-                    className={cn('mt-4', isDark && 'text-neutral-300')}
+                    tone="secondary"
+                    className={cn('mt-4', 'dark:text-neutral-300')}
                   >
                     {subtitle}
                   </Text>
@@ -113,14 +113,14 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
       >
         {meshElement}
         <Container size="md">
-          <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+          <Heading as="h2" size="display-md">
             {title}
           </Heading>
           {subtitle && (
             <Text
               size="body-lg"
-              tone={isDark ? 'inherit' : 'secondary'}
-              className={cn('mx-auto mt-4 max-w-xl', isDark && 'text-neutral-300')}
+              tone="secondary"
+              className={cn('mx-auto mt-4 max-w-xl', 'dark:text-neutral-300')}
             >
               {subtitle}
             </Text>
@@ -138,12 +138,12 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
             ))}
           </div>
           {note && (
-            <Text size="caption" tone="muted" className={cn('mt-4', isDark && 'text-neutral-500')}>
+            <Text size="caption" tone="muted" className={cn('mt-4', 'dark:text-neutral-500')}>
               {note}
             </Text>
           )}
           {socialProof && (
-            <Text size="body-sm" tone="muted" className={cn('mt-6 font-medium', isDark && 'text-neutral-400')}>
+            <Text size="body-sm" tone="muted" className={cn('mt-6 font-medium', 'dark:text-neutral-400')}>
               {socialProof}
             </Text>
           )}

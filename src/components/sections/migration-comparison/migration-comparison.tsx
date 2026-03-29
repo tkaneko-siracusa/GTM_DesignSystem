@@ -43,15 +43,15 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -65,21 +65,19 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
                 key={i}
                 className={cn(
                   'rounded-2xl border p-6 lg:p-8',
-                  isDark
-                    ? 'border-neutral-800 bg-neutral-900'
-                    : 'border-neutral-200 bg-white',
+                  'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900',
                 )}
               >
                 <Text size="overline" tone="brand" className="mb-2">
                   {path.from}
                 </Text>
-                <Heading as="h3" size="heading-lg" className={isDark ? 'text-white' : ''}>
+                <Heading as="h3" size="heading-lg">
                   {path.tagline}
                 </Heading>
                 <Text
                   size="body-md"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mt-2', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mt-2', 'dark:text-neutral-300')}
                 >
                   {path.description}
                 </Text>
@@ -90,10 +88,10 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
                       key={j}
                       className={cn(
                         'rounded-lg border p-4',
-                        isDark ? 'border-neutral-800 bg-neutral-950' : 'border-neutral-100 bg-neutral-50',
+                        'border-neutral-100 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950',
                       )}
                     >
-                      <Text as="div" size="body-sm" tone="default" className={cn('font-semibold', isDark && 'text-white')}>
+                      <Text as="div" size="body-sm" tone="default" className={cn('font-semibold', 'dark:text-white')}>
                         {trigger.trigger}
                       </Text>
                       <Text size="caption" tone="muted" className="mt-1">

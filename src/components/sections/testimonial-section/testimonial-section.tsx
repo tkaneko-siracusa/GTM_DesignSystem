@@ -40,15 +40,15 @@ export const TestimonialSection = React.forwardRef<HTMLElement, TestimonialSecti
                 </Text>
               )}
               {title && (
-                <Heading as="h2" size="display-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h2" size="display-md">
                   {title}
                 </Heading>
               )}
               {subtitle && (
                 <Text
                   size="body-lg"
-                  tone={isDark ? 'inherit' : 'secondary'}
-                  className={cn('mx-auto mt-4 max-w-2xl', isDark && 'text-neutral-300')}
+                  tone="secondary"
+                  className={cn('mx-auto mt-4 max-w-2xl', 'dark:text-neutral-300')}
                 >
                   {subtitle}
                 </Text>
@@ -62,9 +62,7 @@ export const TestimonialSection = React.forwardRef<HTMLElement, TestimonialSecti
                 key={i}
                 className={cn(
                   'rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary-500/30 hover:shadow-xl',
-                  isDark
-                    ? 'border-neutral-800 bg-neutral-900'
-                    : 'border-neutral-200 bg-white',
+                  'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900',
                 )}
               >
                 <div className="relative">
@@ -82,8 +80,8 @@ export const TestimonialSection = React.forwardRef<HTMLElement, TestimonialSecti
                   )}
                   <Text
                     size="body-md"
-                    tone={isDark ? 'inherit' : 'default'}
-                    className={cn('mb-6 pl-6', isDark && 'text-neutral-200')}
+                    tone="default"
+                    className="mb-6 pl-6 dark:text-neutral-200"
                   >
                     {t.quote}
                   </Text>
@@ -95,7 +93,7 @@ export const TestimonialSection = React.forwardRef<HTMLElement, TestimonialSecti
                     </div>
                   )}
                   <div>
-                    <Text as="div" size="body-sm" tone="default" className={cn('font-semibold', isDark && 'text-white')}>
+                    <Text as="div" size="body-sm" tone="default" className={cn('font-semibold', 'dark:text-white')}>
                       {t.author}
                     </Text>
                     {(t.role || t.company) && (
