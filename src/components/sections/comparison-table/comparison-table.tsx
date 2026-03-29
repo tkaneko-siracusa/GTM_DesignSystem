@@ -74,7 +74,7 @@ export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProp
           <div className="overflow-x-auto">
             <table className="w-full border-collapse" role="table">
               <thead className="sticky top-0 z-10">
-                <tr className={isDark ? 'bg-neutral-950' : 'bg-white'}>
+                <tr className="bg-white dark:bg-neutral-950">
                   <th className="p-4 text-left"><span className="sr-only">Feature</span></th>
                   {columns.map((col, i) => (
                     <th
@@ -99,13 +99,10 @@ export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProp
                 {rows.map((row, i) => (
                   <tr
                     key={i}
-                    className={cn(
-                      'border-t',
-                      isDark ? 'border-neutral-800' : 'border-neutral-200',
-                    )}
+                    className="border-t border-neutral-200 dark:border-neutral-800"
                   >
                     <td className="sticky left-0 z-5 p-4" style={{ backgroundColor: 'inherit' }}>
-                      <Text as="span" size="body-sm" tone={isDark ? 'inherit' : 'default'} className={isDark ? 'text-neutral-200' : ''}>
+                      <Text as="span" size="body-sm" tone="default" className="dark:text-neutral-200">
                         {row.feature}
                       </Text>
                     </td>
