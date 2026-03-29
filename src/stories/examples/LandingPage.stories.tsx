@@ -242,6 +242,7 @@ export const TopPage: Story = {
         <AnimateOnScroll animation="fade-up">
           <CodeBlock
             layout="split"
+            alignment="top"
             eyebrow={isJa ? 'デベロッパーエクスペリエンス' : 'DEVELOPER EXPERIENCE'}
             title={isJa ? '5分でデプロイ、5行で統合' : 'Deploy in 5 min, integrate in 5 lines'}
             subtitle={isJa ? '既存のTypeScriptスキルをそのまま活用。型安全なSDKを自動生成。' : 'Use your existing TypeScript skills. Auto-generated type-safe SDK.'}

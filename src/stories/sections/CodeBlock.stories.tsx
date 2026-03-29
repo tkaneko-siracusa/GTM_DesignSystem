@@ -64,3 +64,25 @@ export const SplitLayout: Story = {
     );
   },
 };
+
+export const SplitLayoutTopAligned: Story = {
+  render: (_, { globals }) => {
+    const isJa = globals.locale === 'ja';
+    return (
+      <CodeBlock
+        layout="split"
+        alignment="top"
+        title={isJa ? '型安全なAPI呼び出し' : 'Type-safe API calls'}
+        subtitle={
+          isJa
+            ? 'スキーマ定義からTypeScript SDKを自動生成。手動でのAPI実装は不要です。'
+            : 'Auto-generate TypeScript SDK from schema definitions. No manual API implementation needed.'
+        }
+        code={sampleCode}
+        language="typescript"
+        filename="app/api/users.ts"
+        showLineNumbers
+      />
+    );
+  },
+};

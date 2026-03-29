@@ -17,6 +17,8 @@ export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 
   filename?: string;
   description?: React.ReactNode;
   layout?: 'centered' | 'split';
+  /** split layout 時の垂直方向の配置 */
+  alignment?: 'center' | 'top';
   background?: 'default' | 'muted' | 'dark' | 'brand';
   showLineNumbers?: boolean;
   highlightLines?: number[];
@@ -34,6 +36,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
       filename,
       description,
       layout = 'centered',
+      alignment = 'center',
       background = 'default',
       showLineNumbers = false,
       highlightLines = [],
@@ -43,7 +46,6 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
   ) => {
     const [copied, setCopied] = React.useState(false);
     const [highlightedHtml, setHighlightedHtml] = React.useState<string | null>(null);
-    const isDark = background === 'dark' || background === 'brand';
 
     React.useEffect(() => {
       import('shiki')
@@ -107,7 +109,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
       return (
         <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
           <Container>
-            <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className={cn('grid gap-12 lg:grid-cols-2', alignment === 'center' ? 'items-center' : 'items-start')}>
               <div>
                 {eyebrow && (
                   <Text size="overline" tone="brand" className="mb-4">
