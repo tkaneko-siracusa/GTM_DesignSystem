@@ -74,9 +74,7 @@ export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
                     ? 'border-primary-500/20 bg-gradient-to-br from-primary-50 to-white shadow-glow-primary dark:from-primary-950/20 dark:to-neutral-900'
                     : item.variant === 'dark'
                       ? 'border-neutral-800 bg-neutral-950 text-white'
-                      : isDark
-                        ? 'border-neutral-800 bg-neutral-900'
-                        : 'border-neutral-200 bg-white',
+                      : 'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900',
                   spanClasses[item.span ?? 1],
                   rowSpanClasses[item.rowSpan ?? 1],
                 )}
@@ -86,14 +84,14 @@ export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
                     {item.icon}
                   </div>
                 )}
-                <Heading as="h3" size="heading-md" className={isDark ? 'text-white' : ''}>
+                <Heading as="h3" size="heading-md" className={item.variant === 'dark' ? 'text-white!' : ''}>
                   {item.title}
                 </Heading>
                 {item.description && (
                   <Text
                     size="body-sm"
-                    tone={isDark ? 'inherit' : 'secondary'}
-                    className={cn('mt-2', isDark && 'text-neutral-400')}
+                    tone={item.variant === 'dark' ? 'inherit' : 'secondary'}
+                    className={cn('mt-2', item.variant === 'dark' && 'text-neutral-400')}
                   >
                     {item.description}
                   </Text>
