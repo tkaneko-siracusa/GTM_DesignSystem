@@ -63,9 +63,7 @@ export const CaseStudySection = React.forwardRef<HTMLElement, CaseStudySectionPr
                 key={i}
                 className={cn(
                   'flex flex-col rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-primary-500/30 hover:shadow-xl lg:p-8',
-                  isDark
-                    ? 'border-neutral-800 bg-neutral-900'
-                    : 'border-neutral-200 bg-white',
+                  'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900',
                 )}
               >
                 {c.companyLogo && (
@@ -79,20 +77,17 @@ export const CaseStudySection = React.forwardRef<HTMLElement, CaseStudySectionPr
 
                 <Text
                   size="body-md"
-                  tone={isDark ? 'inherit' : 'default'}
-                  className={cn('flex-1', isDark && 'text-neutral-200')}
+                  tone="default"
+                  className="flex-1 dark:text-neutral-200"
                 >
                   &ldquo;{c.quote}&rdquo;
                 </Text>
 
                 {c.metrics && c.metrics.length > 0 && (
-                  <div className={cn(
-                    'mt-6 flex gap-6 border-t pt-6',
-                    isDark ? 'border-neutral-800' : 'border-neutral-200',
-                  )}>
+                  <div className="mt-6 flex gap-6 border-t border-neutral-200 pt-6 dark:border-neutral-800">
                     {c.metrics.map((m, j) => (
                       <div key={j}>
-                        <div className={cn('text-lg font-bold', isDark ? 'text-white' : 'text-primary-500')}>
+                        <div className="text-lg font-bold text-primary-500 dark:text-white">
                           {m.value}
                         </div>
                         <Text as="div" size="caption" tone="muted">{m.label}</Text>
