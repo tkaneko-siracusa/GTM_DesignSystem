@@ -71,6 +71,8 @@ export { MigrationComparison, type MigrationComparisonProps, type MigrationPath,
 export { AirPocketFeature, type AirPocketFeatureProps, type AirPocket } from './components/sections/air-pocket-feature';
 
 export { SecurityBadges, type SecurityBadgesProps, type SecurityBadge } from './components/sections/security-badges';
+export { FormInput, FormTextarea, FormSelect, FormButton, ContactForm, ResourceRequestForm, DemoRequestForm } from './components/sections/form';
+export type { FormInputProps, FormTextareaProps, FormSelectProps, FormButtonProps, ContactFormProps, ResourceRequestFormProps, DemoRequestFormProps } from './components/sections/form';
 export { CaseStudySection, type CaseStudySectionProps, type CaseStudy } from './components/sections/case-study-card';
 
 // Layout
