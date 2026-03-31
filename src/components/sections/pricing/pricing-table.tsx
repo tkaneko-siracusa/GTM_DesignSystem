@@ -12,14 +12,14 @@ export interface PricingTableProps extends Omit<React.HTMLAttributes<HTMLElement
   subtitle?: string;
   plans: PricingCardProps[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const PricingTable = React.forwardRef<HTMLElement, PricingTableProps>(
-  ({ className, eyebrow, title, subtitle, plans, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, plans, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container size="xl">
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">

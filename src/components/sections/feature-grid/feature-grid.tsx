@@ -37,6 +37,7 @@ export interface FeatureGridProps
   columns?: 2 | 3 | 4;
   cardStyle?: 'default' | 'muted';
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
@@ -49,18 +50,17 @@ export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
       subtitle,
       features,
       columns = 3,
-      background = 'default',
+      background = 'default', spacing,
       ...props
     },
     ref,
   ) => {
-    const isDark = background === 'dark' || background === 'brand';
 
     return (
       <Section
         ref={ref}
         background={background}
-        spacing="lg"
+        spacing={spacing ?? 'lg'}
         className={className}
         {...props}
       >

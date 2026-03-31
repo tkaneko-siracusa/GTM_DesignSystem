@@ -40,6 +40,7 @@ interface BaseFormSectionProps extends Omit<React.HTMLAttributes<HTMLElement>, '
   title?: React.ReactNode;
   subtitle?: string;
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
   /** Formspree のフォームID（例: "xpznqkdl"） */
   formspreeId?: string;
   /** 送信成功時メッセージ */
@@ -91,7 +92,7 @@ export interface ContactFormProps extends BaseFormSectionProps {
 export const ContactForm = React.forwardRef<HTMLElement, ContactFormProps>(
   ({
     className, eyebrow, title, subtitle, background = 'default',
-    formspreeId, successMessage, errorMessage,
+    formspreeId, successMessage, errorMessage, spacing,
     ichisanEnabled = true,
     ...props
   }, ref) => {
@@ -101,7 +102,7 @@ export const ContactForm = React.forwardRef<HTMLElement, ContactFormProps>(
     const isJa = typeof document !== 'undefined' && document.documentElement.lang === 'ja';
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
@@ -185,7 +186,7 @@ export interface ResourceRequestFormProps extends BaseFormSectionProps {
 export const ResourceRequestForm = React.forwardRef<HTMLElement, ResourceRequestFormProps>(
   ({
     className, eyebrow, title, subtitle, background = 'muted',
-    formspreeId, successMessage, errorMessage,
+    formspreeId, successMessage, errorMessage, spacing,
     ichisanEnabled = true, resourceName,
     ...props
   }, ref) => {
@@ -195,7 +196,7 @@ export const ResourceRequestForm = React.forwardRef<HTMLElement, ResourceRequest
     const isJa = typeof document !== 'undefined' && document.documentElement.lang === 'ja';
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
@@ -277,7 +278,7 @@ export interface DemoRequestFormProps extends BaseFormSectionProps {
 export const DemoRequestForm = React.forwardRef<HTMLElement, DemoRequestFormProps>(
   ({
     className, eyebrow, title, subtitle, background = 'default',
-    formspreeId, successMessage, errorMessage,
+    formspreeId, successMessage, errorMessage, spacing,
     ichisanEnabled = true, timeSlots,
     ...props
   }, ref) => {
@@ -299,7 +300,7 @@ export const DemoRequestForm = React.forwardRef<HTMLElement, DemoRequestFormProp
         ]);
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">

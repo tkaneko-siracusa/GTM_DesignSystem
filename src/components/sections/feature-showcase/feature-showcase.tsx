@@ -21,14 +21,14 @@ export interface FeatureShowcaseProps extends Omit<React.HTMLAttributes<HTMLElem
   subtitle?: string;
   items: ShowcaseItem[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProps>(
-  ({ className, eyebrow, title, subtitle, items, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, items, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-16 text-center">
