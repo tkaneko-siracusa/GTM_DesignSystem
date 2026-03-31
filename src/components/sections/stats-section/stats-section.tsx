@@ -24,16 +24,16 @@ export interface StatsSectionProps extends Omit<React.HTMLAttributes<HTMLElement
   subtitle?: string;
   stats: StatItem[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
   /** カウントアップアニメーションを有効にする */
   animated?: boolean;
 }
 
 export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
-  ({ className, eyebrow, title, subtitle, stats, background = 'default', animated = false, ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, stats, background = 'default', spacing, animated = false, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">

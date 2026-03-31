@@ -16,14 +16,14 @@ export interface LogoCloudProps extends Omit<React.HTMLAttributes<HTMLElement>, 
   logos: LogoItem[];
   scrolling?: boolean;
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const LogoCloud = React.forwardRef<HTMLElement, LogoCloudProps>(
-  ({ className, eyebrow, title, logos, scrolling = false, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, logos, scrolling = false, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="md" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'md'} className={className} {...props}>
         <Container>
           {(eyebrow || title) && (
             <div className="mb-10 text-center">

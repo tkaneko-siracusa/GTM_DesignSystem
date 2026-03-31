@@ -33,6 +33,7 @@ export interface CTASectionProps
   actions: CTAAction[];
   note?: string;
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
   backgroundMesh?: boolean;
   socialProof?: string;
   logoStrip?: React.ReactNode;
@@ -48,6 +49,7 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
       actions,
       note,
       background = 'dark',
+      spacing,
       backgroundMesh = false,
       socialProof,
       logoStrip,
@@ -55,7 +57,6 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
     },
     ref,
   ) => {
-    const isDark = background === 'dark' || background === 'brand';
 
     const meshElement = backgroundMesh && (
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -67,7 +68,7 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
 
     if (layout === 'split') {
       return (
-        <Section ref={ref} background={background} spacing="lg" className={cn('relative overflow-hidden', className)} {...props}>
+        <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={cn('relative overflow-hidden', className)} {...props}>
           {meshElement}
           <Container>
             <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
@@ -107,7 +108,7 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
       <Section
         ref={ref}
         background={background}
-        spacing="lg"
+        spacing={spacing ?? 'lg'}
         className={cn('relative overflow-hidden', ctaSectionVariants({ layout }), className)}
         {...props}
       >

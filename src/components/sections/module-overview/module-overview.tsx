@@ -23,14 +23,14 @@ export interface ModuleOverviewProps extends Omit<React.HTMLAttributes<HTMLEleme
   subtitle?: string;
   layers: ArchitectureLayer[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const ModuleOverview = React.forwardRef<HTMLElement, ModuleOverviewProps>(
-  ({ className, eyebrow, title, subtitle, layers, background = 'dark', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, layers, background = 'dark', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">

@@ -18,14 +18,14 @@ export interface SecurityBadgesProps extends Omit<React.HTMLAttributes<HTMLEleme
   subtitle?: string;
   badges: SecurityBadge[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const SecurityBadges = React.forwardRef<HTMLElement, SecurityBadgesProps>(
-  ({ className, eyebrow, title, subtitle, badges, background = 'muted', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, badges, background = 'muted', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="md" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'md'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">

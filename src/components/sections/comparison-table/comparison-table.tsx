@@ -23,6 +23,7 @@ export interface ComparisonTableProps extends Omit<React.HTMLAttributes<HTMLElem
   columns: ComparisonColumn[];
   rows: ComparisonRow[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 const CellValue: React.FC<{ value: string | boolean | React.ReactNode }> = ({ value }) => {
@@ -41,11 +42,10 @@ const CellValue: React.FC<{ value: string | boolean | React.ReactNode }> = ({ va
 };
 
 export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProps>(
-  ({ className, eyebrow, title, subtitle, columns, rows, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, columns, rows, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">

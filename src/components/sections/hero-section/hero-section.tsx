@@ -41,6 +41,7 @@ export interface HeroSectionProps
   image?: React.ReactNode;
   background?: 'default' | 'muted' | 'dark' | 'brand';
   backgroundPattern?: HeroBackgroundPattern;
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
@@ -56,6 +57,7 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
       image,
       background = 'default',
       backgroundPattern = 'none',
+      spacing,
       ...props
     },
     ref,
@@ -94,7 +96,6 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
         </Heading>
       );
 
-    const isDark = background === 'dark' || background === 'brand';
 
     const content = (
       <>
@@ -149,7 +150,7 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
         <Section
           ref={ref}
           background={background}
-          spacing="xl"
+          spacing={spacing ?? 'xl'}
           className={cn(heroSectionVariants({ layout }), className)}
           {...props}
         >
@@ -168,7 +169,7 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
       <Section
         ref={ref}
         background={background}
-        spacing="xl"
+        spacing={spacing ?? 'xl'}
         className={cn(heroSectionVariants({ layout }), className)}
         {...props}
       >

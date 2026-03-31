@@ -26,14 +26,14 @@ export interface MigrationComparisonProps extends Omit<React.HTMLAttributes<HTML
   subtitle?: string;
   paths: MigrationPath[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const MigrationComparison = React.forwardRef<HTMLElement, MigrationComparisonProps>(
-  ({ className, eyebrow, title, subtitle, paths, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, paths, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">

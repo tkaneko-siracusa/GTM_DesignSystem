@@ -18,6 +18,7 @@ export interface FAQSectionProps extends Omit<React.HTMLAttributes<HTMLElement>,
   subtitle?: string;
   items: FAQItem[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 const AccordionItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) => {
@@ -76,11 +77,10 @@ const AccordionItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index
 };
 
 export const FAQSection = React.forwardRef<HTMLElement, FAQSectionProps>(
-  ({ className, eyebrow, title, subtitle, items, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, items, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container size="md">
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center">

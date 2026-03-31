@@ -24,14 +24,14 @@ export interface CaseStudySectionProps extends Omit<React.HTMLAttributes<HTMLEle
   cases: CaseStudy[];
   columns?: 1 | 2 | 3;
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const CaseStudySection = React.forwardRef<HTMLElement, CaseStudySectionProps>(
-  ({ className, eyebrow, title, subtitle, cases, columns = 2, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, cases, columns = 2, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">

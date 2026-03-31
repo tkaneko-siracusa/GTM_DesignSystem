@@ -20,14 +20,14 @@ export interface AirPocketFeatureProps extends Omit<React.HTMLAttributes<HTMLEle
   subtitle?: string;
   airPockets: AirPocket[];
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
 }
 
 export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeatureProps>(
-  ({ className, eyebrow, title, subtitle, airPockets, background = 'default', ...props }, ref) => {
-    const isDark = background === 'dark' || background === 'brand';
+  ({ className, eyebrow, title, subtitle, airPockets, background = 'default', spacing, ...props }, ref) => {
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container>
           {(eyebrow || title || subtitle) && (
             <div className="mb-16 text-center">

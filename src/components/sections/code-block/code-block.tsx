@@ -20,6 +20,7 @@ export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 
   /** split layout 時の垂直方向の配置 */
   alignment?: 'center' | 'top';
   background?: 'default' | 'muted' | 'dark' | 'brand';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
   showLineNumbers?: boolean;
   highlightLines?: number[];
 }
@@ -38,6 +39,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
       layout = 'centered',
       alignment = 'center',
       background = 'default',
+      spacing,
       showLineNumbers = false,
       highlightLines = [],
       ...props
@@ -107,7 +109,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
 
     if (layout === 'split' && (title || description)) {
       return (
-        <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+        <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
           <Container>
             <div className={cn('grid gap-12 lg:grid-cols-2', alignment === 'center' ? 'items-center' : 'items-start')}>
               <div>
@@ -140,7 +142,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
     }
 
     return (
-      <Section ref={ref} background={background} spacing="lg" className={className} {...props}>
+      <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
         <Container size="md">
           {(eyebrow || title || subtitle) && (
             <div className="mb-8 text-center">
