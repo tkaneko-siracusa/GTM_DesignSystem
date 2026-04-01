@@ -85,7 +85,7 @@ export const FAQSection = React.forwardRef<HTMLElement, FAQSectionProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center">
               {eyebrow && (
-                <Text size="overline" tone="brand" className="mb-4">
+                <Text size="overline" className="mb-4">
                   {eyebrow}
                 </Text>
               )}

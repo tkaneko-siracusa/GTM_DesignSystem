@@ -35,7 +35,7 @@ export const ModuleOverview = React.forwardRef<HTMLElement, ModuleOverviewProps>
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" tone="brand" className="mb-4">
+                <Text size="overline" className="mb-4">
                   {eyebrow}
                 </Text>
               )}

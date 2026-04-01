@@ -33,7 +33,7 @@ export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProp
           {(eyebrow || title || subtitle) && (
             <div className="mb-16 text-center">
               {eyebrow && (
-                <Text size="overline" tone="brand" className="mb-4">
+                <Text size="overline" className="mb-4">
                   {eyebrow}
                 </Text>
               )}

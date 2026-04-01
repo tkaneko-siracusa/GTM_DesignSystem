@@ -38,7 +38,7 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" tone="brand" className="mb-4">
+                <Text size="overline" className="mb-4">
                   {eyebrow}
                 </Text>
               )}
@@ -68,7 +68,7 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
                   'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900',
                 )}
               >
-                <Text size="overline" tone="brand" className="mb-2">
+                <Text size="overline" className="mb-2">
                   {path.from}
                 </Text>
                 <Heading as="h3" size="heading-lg">
