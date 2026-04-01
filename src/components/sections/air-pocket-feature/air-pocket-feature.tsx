@@ -32,7 +32,7 @@ export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeaturePr
           {(eyebrow || title || subtitle) && (
             <div className="mb-16 text-center">
               {eyebrow && (
-                <Text size="overline" tone="brand" className="mb-4">
+                <Text size="overline" className="mb-4">
                   {eyebrow}
                 </Text>
               )}
@@ -63,7 +63,7 @@ export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeaturePr
                 )}
               >
                 <div>
-                  <Text size="overline" tone="brand" className="mb-3">
+                  <Text size="overline" className="mb-3">
                     {pocket.module}
                   </Text>
                   <Heading as="h3" size="display-sm">

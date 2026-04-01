@@ -114,7 +114,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
             <div className={cn('grid gap-12 lg:grid-cols-2', alignment === 'center' ? 'items-center' : 'items-start')}>
               <div>
                 {eyebrow && (
-                  <Text size="overline" tone="brand" className="mb-4">
+                  <Text size="overline" className="mb-4">
                     {eyebrow}
                   </Text>
                 )}
@@ -147,7 +147,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-8 text-center">
               {eyebrow && (
-                <Text size="overline" tone="brand" className="mb-4">
+                <Text size="overline" className="mb-4">
                   {eyebrow}
                 </Text>
               )}
