@@ -9,7 +9,7 @@ export const textVariants = cva('', {
       'body-md': 'text-body-md',
       'body-sm': 'text-body-sm',
       caption: 'text-caption',
-      overline: 'inline-flex items-center rounded-full border border-primary-500/20 px-3 py-1 text-body-sm font-medium tracking-wide text-primary-600 dark:border-primary-400/20 dark:text-primary-400',
+      overline: 'inline-flex items-center rounded-full bg-primary-500/10 px-3 py-1 text-body-sm font-medium tracking-wide text-primary-600 dark:bg-primary-400/10 dark:text-primary-400',
     },
     tone: {
       default: 'text-neutral-900 dark:text-neutral-50',
