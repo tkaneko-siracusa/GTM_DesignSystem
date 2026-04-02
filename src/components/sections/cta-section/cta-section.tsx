@@ -61,7 +61,7 @@ export const CTASection = React.forwardRef<HTMLElement, CTASectionProps>(
     const meshElement = backgroundMesh && (
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
-          className="absolute inset-0 [background-image:radial-gradient(ellipse_at_30%_50%,rgba(27,164,145,0.2),transparent_60%),radial-gradient(ellipse_at_70%_30%,rgba(59,130,246,0.1),transparent_60%)]"
+          className="absolute inset-0 [background-image:radial-gradient(ellipse_at_30%_50%,rgba(19,195,160,0.2),transparent_60%),radial-gradient(ellipse_at_70%_30%,rgba(59,130,246,0.1),transparent_60%)]"
         />
       </div>
     );

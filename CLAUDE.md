@@ -116,7 +116,7 @@ docker compose --platform linux/amd64 up
 
 ## カラー
 
-- メインカラー: `#1BA491`（ティール系）
+- メインカラー: `#13c3a0`（ティール系）
 - success: Green系（primaryのティールと区別）
 - warning: Amber、error: Red、info: Blue
 

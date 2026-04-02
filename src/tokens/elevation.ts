@@ -11,9 +11,9 @@ export const shadows = {
   xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
   '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
   /** プライマリカラーのグロー（CTA・ホバー用） */
-  'glow-primary': '0 0 24px rgb(27 164 145 / 0.25)',
+  'glow-primary': '0 0 24px rgb(19 195 160 / 0.25)',
   /** プライマリカラーのグロー（大） */
-  'glow-primary-lg': '0 0 48px rgb(27 164 145 / 0.3)',
+  'glow-primary-lg': '0 0 48px rgb(19 195 160 / 0.3)',
 } as const;
 
 export const radii = {

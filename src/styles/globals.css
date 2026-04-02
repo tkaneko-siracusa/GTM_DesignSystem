@@ -16,20 +16,20 @@
 @theme {
   /* --------------------------------------------------------
      Colors: Brand (Primary)
-     Teal系 - #1BA491をベースにしたPolastackブランドカラー
+     Teal系 - #13c3a0をベースにしたPolastackブランドカラー
      @polastack/design-system と同一値
      -------------------------------------------------------- */
-  --color-primary-50: #f0fdfb;
-  --color-primary-100: #cdfbf0;
-  --color-primary-200: #9bf7e2;
-  --color-primary-300: #61ebd0;
-  --color-primary-400: #2fd4ba;
-  --color-primary-500: #1BA491;
-  --color-primary-600: #138575;
-  --color-primary-700: #146b5f;
-  --color-primary-800: #15564e;
-  --color-primary-900: #134841;
-  --color-primary-950: #042c28;
+  --color-primary-50: #f2fdfb;
+  --color-primary-100: #dbfaf4;
+  --color-primary-200: #b4f3e6;
+  --color-primary-300: #7ee7d2;
+  --color-primary-400: #2ee0bc;
+  --color-primary-500: #13c3a0;
+  --color-primary-600: #109e81;
+  --color-primary-700: #137663;
+  --color-primary-800: #165a4c;
+  --color-primary-900: #164b40;
+  --color-primary-950: #072c25;
 
   /* --------------------------------------------------------
      Colors: Neutral (Zinc系)
@@ -129,8 +129,8 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-glow-primary: 0 0 24px rgb(27 164 145 / 0.25);
-  --shadow-glow-primary-lg: 0 0 48px rgb(27 164 145 / 0.3);
+  --shadow-glow-primary: 0 0 24px rgb(19 195 160 / 0.25);
+  --shadow-glow-primary-lg: 0 0 48px rgb(19 195 160 / 0.3);
 
   /* --------------------------------------------------------
      Elevation: Border Radius

@@ -17,7 +17,7 @@ export interface LogoProps extends React.SVGAttributes<SVGSVGElement> {
  */
 export const Logo = React.forwardRef<SVGSVGElement, LogoProps>(
   ({ className, variant = 'full', colorScheme = 'primary', height = 32, ...props }, ref) => {
-    const brandColor = '#1BA491';
+    const brandColor = '#13c3a0';
 
     const textColor =
       colorScheme === 'reverse'
