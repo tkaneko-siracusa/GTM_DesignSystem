@@ -31,6 +31,7 @@ export interface FeatureItem {
 export interface FeatureGridProps
   extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   features: FeatureItem[];
@@ -45,7 +46,7 @@ export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
     {
       className,
       cardStyle,
-      eyebrow,
+      eyebrow, eyebrowStyle,
       title,
       subtitle,
       features,
@@ -68,7 +69,7 @@ export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

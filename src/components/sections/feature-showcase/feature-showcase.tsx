@@ -17,6 +17,7 @@ export interface ShowcaseItem {
 
 export interface FeatureShowcaseProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   items: ShowcaseItem[];
@@ -25,7 +26,7 @@ export interface FeatureShowcaseProps extends Omit<React.HTMLAttributes<HTMLElem
 }
 
 export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProps>(
-  ({ className, eyebrow, title, subtitle, items, background = 'default', spacing, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, items, background = 'default', spacing, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -33,7 +34,7 @@ export const FeatureShowcase = React.forwardRef<HTMLElement, FeatureShowcaseProp
           {(eyebrow || title || subtitle) && (
             <div className="mb-16 text-center">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

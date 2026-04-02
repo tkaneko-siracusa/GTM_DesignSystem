@@ -37,6 +37,7 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 interface BaseFormSectionProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   background?: 'default' | 'muted' | 'dark' | 'brand';
@@ -91,7 +92,7 @@ export interface ContactFormProps extends BaseFormSectionProps {
 
 export const ContactForm = React.forwardRef<HTMLElement, ContactFormProps>(
   ({
-    className, eyebrow, title, subtitle, background = 'default',
+    className, eyebrow, eyebrowStyle, title, subtitle, background = 'default',
     formspreeId, successMessage, errorMessage, spacing,
     ichisanEnabled = true,
     ...props
@@ -106,7 +107,7 @@ export const ContactForm = React.forwardRef<HTMLElement, ContactFormProps>(
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
-              {eyebrow && <Text size="overline" className="mb-4">{eyebrow}</Text>}
+              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
               {title && <Heading as="h2" size="display-sm">{title}</Heading>}
               {subtitle && <Text size="body-lg" tone="secondary" className="mx-auto mt-4 max-w-xl dark:text-neutral-300">{subtitle}</Text>}
             </div>
@@ -185,7 +186,7 @@ export interface ResourceRequestFormProps extends BaseFormSectionProps {
 
 export const ResourceRequestForm = React.forwardRef<HTMLElement, ResourceRequestFormProps>(
   ({
-    className, eyebrow, title, subtitle, background = 'muted',
+    className, eyebrow, eyebrowStyle, title, subtitle, background = 'muted',
     formspreeId, successMessage, errorMessage, spacing,
     ichisanEnabled = true, resourceName,
     ...props
@@ -200,7 +201,7 @@ export const ResourceRequestForm = React.forwardRef<HTMLElement, ResourceRequest
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
-              {eyebrow && <Text size="overline" className="mb-4">{eyebrow}</Text>}
+              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
               {title && <Heading as="h2" size="display-sm">{title}</Heading>}
               {subtitle && <Text size="body-lg" tone="secondary" className="mx-auto mt-4 max-w-xl dark:text-neutral-300">{subtitle}</Text>}
             </div>
@@ -277,7 +278,7 @@ export interface DemoRequestFormProps extends BaseFormSectionProps {
 
 export const DemoRequestForm = React.forwardRef<HTMLElement, DemoRequestFormProps>(
   ({
-    className, eyebrow, title, subtitle, background = 'default',
+    className, eyebrow, eyebrowStyle, title, subtitle, background = 'default',
     formspreeId, successMessage, errorMessage, spacing,
     ichisanEnabled = true, timeSlots,
     ...props
@@ -304,7 +305,7 @@ export const DemoRequestForm = React.forwardRef<HTMLElement, DemoRequestFormProp
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
-              {eyebrow && <Text size="overline" className="mb-4">{eyebrow}</Text>}
+              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
               {title && <Heading as="h2" size="display-sm">{title}</Heading>}
               {subtitle && <Text size="body-lg" tone="secondary" className="mx-auto mt-4 max-w-xl dark:text-neutral-300">{subtitle}</Text>}
             </div>

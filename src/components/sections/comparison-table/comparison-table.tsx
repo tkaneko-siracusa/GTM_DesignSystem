@@ -18,6 +18,7 @@ export interface ComparisonRow {
 
 export interface ComparisonTableProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   columns: ComparisonColumn[];
@@ -42,7 +43,7 @@ const CellValue: React.FC<{ value: string | boolean | React.ReactNode }> = ({ va
 };
 
 export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProps>(
-  ({ className, eyebrow, title, subtitle, columns, rows, background = 'default', spacing, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, columns, rows, background = 'default', spacing, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -50,7 +51,7 @@ export const ComparisonTable = React.forwardRef<HTMLElement, ComparisonTableProp
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}
