@@ -68,13 +68,13 @@ export const HeroSection = React.forwardRef<HTMLElement, HeroSectionProps>(
           className={cn(
             'absolute inset-0',
             backgroundPattern === 'grid' &&
-              '[background-image:linear-gradient(rgba(27,164,145,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(27,164,145,0.08)_1px,transparent_1px)] [background-size:48px_48px]',
+              '[background-image:linear-gradient(rgba(19,195,160,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(19,195,160,0.08)_1px,transparent_1px)] [background-size:48px_48px]',
             backgroundPattern === 'dots' &&
-              '[background-image:radial-gradient(circle,rgba(27,164,145,0.15)_1px,transparent_1px)] [background-size:24px_24px]',
+              '[background-image:radial-gradient(circle,rgba(19,195,160,0.15)_1px,transparent_1px)] [background-size:24px_24px]',
             backgroundPattern === 'mesh' &&
-              '[background-image:radial-gradient(ellipse_at_20%_50%,rgba(27,164,145,0.15),transparent_50%),radial-gradient(ellipse_at_80%_20%,rgba(59,130,246,0.1),transparent_50%),radial-gradient(ellipse_at_50%_80%,rgba(27,164,145,0.1),transparent_50%)]',
+              '[background-image:radial-gradient(ellipse_at_20%_50%,rgba(19,195,160,0.15),transparent_50%),radial-gradient(ellipse_at_80%_20%,rgba(59,130,246,0.1),transparent_50%),radial-gradient(ellipse_at_50%_80%,rgba(19,195,160,0.1),transparent_50%)]',
             backgroundPattern === 'radial-glow' &&
-              '[background-image:radial-gradient(ellipse_at_center,rgba(27,164,145,0.2),transparent_70%)]',
+              '[background-image:radial-gradient(ellipse_at_center,rgba(19,195,160,0.2),transparent_70%)]',
           )}
           style={{ maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)' }}
         />

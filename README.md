@@ -48,7 +48,7 @@ import '@polastack/gtm-design-system/globals.css';
 
 | トークン | 説明 |
 |---|---|
-| **Colors** | ブランドティール `#1BA491` + ニュートラル（neutral-850含む） + セマンティック |
+| **Colors** | ブランドティール `#13c3a0` + ニュートラル（neutral-850含む） + セマンティック |
 | **Typography** | Display 72px 〜 Caption 12px（基準 16px）、サイズ別letter-spacing最適化 |
 | **Spacing** | セクション間余白 80–160px、コンテナ幅 640–1280px |
 | **Gradients** | ブランドグラデーション、グロー効果、テキストグラデーション |
@@ -203,7 +203,7 @@ Shared brand identity with `@polastack/design-system`, extended for marketing:
 
 | Token | Description |
 |---|---|
-| **Colors** | Brand teal `#1BA491` + neutral (incl. neutral-850) + semantic |
+| **Colors** | Brand teal `#13c3a0` + neutral (incl. neutral-850) + semantic |
 | **Typography** | Display 72px to Caption 12px (base 16px), size-specific letter-spacing |
 | **Spacing** | Section spacing 80–160px, container widths 640–1280px |
 | **Gradients** | Brand gradients, glow effects, text gradients |
