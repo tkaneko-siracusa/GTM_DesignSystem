@@ -8,6 +8,7 @@ import { PricingCard, type PricingCardProps } from './pricing-card';
 
 export interface PricingTableProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   plans: PricingCardProps[];
@@ -16,7 +17,7 @@ export interface PricingTableProps extends Omit<React.HTMLAttributes<HTMLElement
 }
 
 export const PricingTable = React.forwardRef<HTMLElement, PricingTableProps>(
-  ({ className, eyebrow, title, subtitle, plans, background = 'default', spacing, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, plans, background = 'default', spacing, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -24,7 +25,7 @@ export const PricingTable = React.forwardRef<HTMLElement, PricingTableProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

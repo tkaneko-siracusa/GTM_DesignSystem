@@ -19,6 +19,7 @@ export interface CaseStudy {
 
 export interface CaseStudySectionProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   cases: CaseStudy[];
@@ -28,7 +29,7 @@ export interface CaseStudySectionProps extends Omit<React.HTMLAttributes<HTMLEle
 }
 
 export const CaseStudySection = React.forwardRef<HTMLElement, CaseStudySectionProps>(
-  ({ className, eyebrow, title, subtitle, cases, columns = 2, background = 'default', spacing, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, cases, columns = 2, background = 'default', spacing, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -36,7 +37,7 @@ export const CaseStudySection = React.forwardRef<HTMLElement, CaseStudySectionPr
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

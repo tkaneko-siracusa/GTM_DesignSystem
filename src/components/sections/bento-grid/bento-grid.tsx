@@ -17,6 +17,7 @@ export interface BentoItem {
 
 export interface BentoGridProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   items: BentoItem[];
@@ -35,7 +36,7 @@ const rowSpanClasses = {
 } as const;
 
 export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
-  ({ className, eyebrow, title, subtitle, items, background = 'default', spacing, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, items, background = 'default', spacing, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -43,7 +44,7 @@ export const BentoGrid = React.forwardRef<HTMLElement, BentoGridProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

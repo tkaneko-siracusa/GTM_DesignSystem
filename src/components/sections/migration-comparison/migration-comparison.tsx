@@ -22,6 +22,7 @@ export interface MigrationPath {
 
 export interface MigrationComparisonProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   paths: MigrationPath[];
@@ -30,7 +31,7 @@ export interface MigrationComparisonProps extends Omit<React.HTMLAttributes<HTML
 }
 
 export const MigrationComparison = React.forwardRef<HTMLElement, MigrationComparisonProps>(
-  ({ className, eyebrow, title, subtitle, paths, background = 'default', spacing, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, paths, background = 'default', spacing, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -38,7 +39,7 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}
@@ -68,7 +69,7 @@ export const MigrationComparison = React.forwardRef<HTMLElement, MigrationCompar
                   'border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900',
                 )}
               >
-                <Text size="overline" className="mb-2">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-2">
                   {path.from}
                 </Text>
                 <Heading as="h3" size="heading-lg">

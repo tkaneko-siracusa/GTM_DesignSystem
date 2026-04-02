@@ -10,6 +10,7 @@ import { Text } from '@/components/primitives/text';
 
 export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   code: string;
@@ -29,7 +30,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
   (
     {
       className,
-      eyebrow,
+      eyebrow, eyebrowStyle,
       title,
       subtitle,
       code,
@@ -114,7 +115,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
             <div className={cn('grid gap-12 lg:grid-cols-2', alignment === 'center' ? 'items-center' : 'items-start')}>
               <div>
                 {eyebrow && (
-                  <Text size="overline" className="mb-4">
+                  <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                     {eyebrow}
                   </Text>
                 )}
@@ -147,7 +148,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-8 text-center">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

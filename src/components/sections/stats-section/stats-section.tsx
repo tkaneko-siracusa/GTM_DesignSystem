@@ -20,6 +20,7 @@ export interface StatItem {
 
 export interface StatsSectionProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
+  eyebrowStyle?: 'pill' | 'border' | 'text';
   title?: React.ReactNode;
   subtitle?: string;
   stats: StatItem[];
@@ -30,7 +31,7 @@ export interface StatsSectionProps extends Omit<React.HTMLAttributes<HTMLElement
 }
 
 export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
-  ({ className, eyebrow, title, subtitle, stats, background = 'default', spacing, animated = false, ...props }, ref) => {
+  ({ className, eyebrow, eyebrowStyle, title, subtitle, stats, background = 'default', spacing, animated = false, ...props }, ref) => {
 
     return (
       <Section ref={ref} background={background} spacing={spacing ?? 'lg'} className={className} {...props}>
@@ -38,7 +39,7 @@ export const StatsSection = React.forwardRef<HTMLElement, StatsSectionProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-12 text-center lg:mb-16">
               {eyebrow && (
-                <Text size="overline" className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}
