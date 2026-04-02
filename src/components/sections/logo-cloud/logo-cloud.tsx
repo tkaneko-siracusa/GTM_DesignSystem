@@ -12,7 +12,7 @@ export interface LogoItem {
 
 export interface LogoCloudProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
-  eyebrowStyle?: 'pill' | 'border' | 'text';
+  eyebrowStyle?: 'pill' | 'border' | 'text' | 'dot' | 'gradient' | 'icon-pill';
   title?: React.ReactNode;
   logos: LogoItem[];
   scrolling?: boolean;
@@ -29,7 +29,7 @@ export const LogoCloud = React.forwardRef<HTMLElement, LogoCloudProps>(
           {(eyebrow || title) && (
             <div className="mb-10 text-center">
               {eyebrow && (
-                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}

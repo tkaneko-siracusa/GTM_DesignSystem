@@ -37,7 +37,7 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 interface BaseFormSectionProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
-  eyebrowStyle?: 'pill' | 'border' | 'text';
+  eyebrowStyle?: 'pill' | 'border' | 'text' | 'dot' | 'gradient' | 'icon-pill';
   title?: React.ReactNode;
   subtitle?: string;
   background?: 'default' | 'muted' | 'dark' | 'brand';
@@ -107,7 +107,7 @@ export const ContactForm = React.forwardRef<HTMLElement, ContactFormProps>(
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
-              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
+              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
               {title && <Heading as="h2" size="display-sm">{title}</Heading>}
               {subtitle && <Text size="body-lg" tone="secondary" className="mx-auto mt-4 max-w-xl dark:text-neutral-300">{subtitle}</Text>}
             </div>
@@ -201,7 +201,7 @@ export const ResourceRequestForm = React.forwardRef<HTMLElement, ResourceRequest
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
-              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
+              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
               {title && <Heading as="h2" size="display-sm">{title}</Heading>}
               {subtitle && <Text size="body-lg" tone="secondary" className="mx-auto mt-4 max-w-xl dark:text-neutral-300">{subtitle}</Text>}
             </div>
@@ -305,7 +305,7 @@ export const DemoRequestForm = React.forwardRef<HTMLElement, DemoRequestFormProp
         <Container size="sm">
           {(eyebrow || title || subtitle) && (
             <div className="mb-10 text-center">
-              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
+              {eyebrow && <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">{eyebrow}</Text>}
               {title && <Heading as="h2" size="display-sm">{title}</Heading>}
               {subtitle && <Text size="body-lg" tone="secondary" className="mx-auto mt-4 max-w-xl dark:text-neutral-300">{subtitle}</Text>}
             </div>

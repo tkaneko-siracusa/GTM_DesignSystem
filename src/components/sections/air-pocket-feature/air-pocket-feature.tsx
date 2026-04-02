@@ -16,7 +16,7 @@ export interface AirPocket {
 
 export interface AirPocketFeatureProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
-  eyebrowStyle?: 'pill' | 'border' | 'text';
+  eyebrowStyle?: 'pill' | 'border' | 'text' | 'dot' | 'gradient' | 'icon-pill';
   title?: React.ReactNode;
   subtitle?: string;
   airPockets: AirPocket[];
@@ -33,7 +33,7 @@ export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeaturePr
           {(eyebrow || title || subtitle) && (
             <div className="mb-16 text-center">
               {eyebrow && (
-                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}
@@ -64,7 +64,7 @@ export const AirPocketFeature = React.forwardRef<HTMLElement, AirPocketFeaturePr
                 )}
               >
                 <div>
-                  <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-3">
+                  <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-3">
                     {pocket.module}
                   </Text>
                   <Heading as="h3" size="display-sm">

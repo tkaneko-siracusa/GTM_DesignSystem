@@ -10,7 +10,7 @@ import { Text } from '@/components/primitives/text';
 
 export interface CodeBlockProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   eyebrow?: string;
-  eyebrowStyle?: 'pill' | 'border' | 'text';
+  eyebrowStyle?: 'pill' | 'border' | 'text' | 'dot' | 'gradient' | 'icon-pill';
   title?: React.ReactNode;
   subtitle?: string;
   code: string;
@@ -115,7 +115,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
             <div className={cn('grid gap-12 lg:grid-cols-2', alignment === 'center' ? 'items-center' : 'items-start')}>
               <div>
                 {eyebrow && (
-                  <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
+                  <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">
                     {eyebrow}
                   </Text>
                 )}
@@ -148,7 +148,7 @@ export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
           {(eyebrow || title || subtitle) && (
             <div className="mb-8 text-center">
               {eyebrow && (
-                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : 'overline-pill'} className="mb-4">
+                <Text size={eyebrowStyle === 'border' ? 'overline-border' : eyebrowStyle === 'text' ? 'overline-text' : eyebrowStyle === 'dot' ? 'overline-dot' : eyebrowStyle === 'gradient' ? 'overline-gradient' : eyebrowStyle === 'icon-pill' ? 'overline-icon-pill' : 'overline-pill'} className="mb-4">
                   {eyebrow}
                 </Text>
               )}
